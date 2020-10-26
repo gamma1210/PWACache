@@ -1,0 +1,2925 @@
+<!doctype html>
+<html class="no-touch no-js" lang="en">
+
+<head>
+  <!-- Superchargify v2.0.9b34e852 (https://www.superchargify.com) -->
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="Bird and Earth">
+  <meta name="apple-mobile-web-app-title" content="Bird and Earth">
+  <meta name="theme-color" content="#000">
+  <meta name="msapplication-config" content="./a/sc/browserconfig.xml?v=7">
+  <link rel="apple-touch-icon"
+    href="https://cdn.superchargify.com/bird-and-earth.myshopify.com/icon-128x128.png?v=1584769763641" sizes="128x128">
+  <link rel="apple-touch-icon"
+    href="https://cdn.superchargify.com/bird-and-earth.myshopify.com/icon-152x152.png?v=1584769763641" sizes="152x152">
+  <link rel="apple-touch-icon"
+    href="https://cdn.superchargify.com/bird-and-earth.myshopify.com/icon-167x167.png?v=1584769763641" sizes="167x167">
+  <link rel="apple-touch-icon"
+    href="https://cdn.superchargify.com/bird-and-earth.myshopify.com/icon-180x180.png?v=1584769763641" sizes="180x180">
+  <link rel="apple-touch-icon"
+    href="https://cdn.superchargify.com/bird-and-earth.myshopify.com/icon-192x192.png?v=1584769763641" sizes="192x192">
+  <link rel="apple-touch-icon"
+    href="https://cdn.superchargify.com/bird-and-earth.myshopify.com/icon-512x512.png?v=1584769763641" sizes="512x512">
+  <link rel="apple-touch-icon"
+    href="https://cdn.superchargify.com/bird-and-earth.myshopify.com/icon-192x192.png?v=1584769763641">
+  <link rel="manifest" href="./a/sc/manifest.json?v=7">
+  <script>
+    ! function (n, e, t) {
+      if (t.serviceWorker) {
+        var r = n.performance && n.performance.mark;
+        r && n.performance.mark("superchargify.snippet.start");
+        var c = function () {},
+          a = n.location.pathname.endsWith("/sw.html"),
+          i = !1;
+        if (i = !!a || !0 === p("true"), t.serviceWorker.getRegistrations().then(function (e) {
+            e.forEach(function (e) {
+              i ? e.scope.includes("/a/sc") && e.unregister() : (e.active || e.waiting || e.installing).scriptURL
+                .includes("/a/sc/sw.js") && e.unregister()
+            })
+          }), i) {
+          var o = !(n.superchargify = {
+            pwa: {
+              cache: {
+                reset: function () {
+                  n.caches.delete("superchargify-shop").catch(function (e) {})
+                }
+              }
+            }
+          });
+          try {
+            (o = /SamsungBrowser/i.test(t.userAgent)) && e.querySelector('link[rel="manifest"]').setAttribute("rel",
+              "ignore")
+          } catch (e) {}
+          if (! function () {
+              try {
+                return n.self !== n.top
+              } catch (e) {
+                return 1
+              }
+            }() || a) {
+            var s = {
+                prompt: "PWA Prompt",
+                preload: "PWA Preload",
+                served_from_cache: "PWA Served from Cache"
+              },
+              u = h("bird-and-earth.myshopify.com", "shop");
+            n.addEventListener("load", function () {
+              a || n.addEventListener("beforeinstallprompt", function (e) {
+                var t = !0 === p("false");
+                n.superchargify.pwa.prompt = e, o || t ? e.preventDefault() : (l("prompt", "visible"), e
+                  .userChoice.then(function (e) {
+                    l("prompt", e.outcome)
+                  }))
+              }), t.serviceWorker.register("a/sc/sw.js", {
+                scope: "/birdandearth/www.birdandearth.com.au/a/sc/",
+                updateViaCache: "none"
+              }).then(function (e) {
+                var t, r;
+                t = m, r = 2500, n.requestIdleCallback ? n.requestIdleCallback(function (e) {
+                  if (0 < e.timeRemaining() || e.didTimeout) try {
+                    t()
+                  } catch (e) {}
+                }, {
+                  timeout: r
+                }) : setTimeout(t, r)
+              })
+            }), n.caches.open("superchargify-shop").then(function (e) {
+              return e.match(n.location.href).then(function (e) {
+                e && l("served_from_cache", h("index", "pageType"))
+              })
+            }).catch(c), r && n.performance.mark("superchargify.snippet.end")
+          }
+        }
+      }
+
+      function p(e) {
+        try {
+          return JSON.parse(e)
+        } catch (e) {}
+      }
+
+      function f(e) {
+        e = e.replace(/[[]]/g, "\\$&");
+        var t = new RegExp("[?&]" + e + "(=([^&#]*)|&|#|$)").exec(n.location.href);
+        return t ? t[2] ? decodeURIComponent(t[2].replace(/\+/g, " ")) : "" : null
+      }
+
+      function h(e, t) {
+        var r = ["{", "{"].join("");
+        return -1 !== e.indexOf(r) ? f(t) : e
+      }
+
+      function l(e, t) {
+        try {
+          ga("send", "event", "Superchargify", s[e] || "Event", t)
+        } catch (e) {}
+        try {
+          fetch("https://anonymous.superchargify.com/r/event?h=" + u + "&a=" + e + "&l=" + t + "&r=" + Math.random())
+            .catch(c)
+        } catch (e) {}
+      }
+
+      function d(t) {
+        return n.caches.open("superchargify-shop").then(function (e) {
+          return e.addAll(t)
+        }).catch(function (e) {})
+      }
+
+      function m() {
+        var e = p('"index"'),
+          t = parseInt("3");
+        if ("product" === e && 0 < t) {
+          if (!(!0 === p("false"))) return;
+          fetch("/recommendations/products.json?product_id=&limit=" + t).then(function (e) {
+            return e.json()
+          }).then(function (e) {
+            var t = e.products;
+            return 0 < t.length && t.map(function (e) {
+              var t = e.url.indexOf("?");
+              return -1 === t ? e.url : e.url.substring(0, t)
+            })
+          }).then(function (e) {
+            if (e) return d(e)
+          }).then(function () {
+            l("preload", "products:" + t)
+          }).catch(function (e) {})
+        } else if (a) {
+          var r = f("itemUrl");
+          r && d([r])
+        }
+      }
+    }(window, document, navigator, localStorage);
+  </script>
+  <!--/ Superchargify v2.0.9b34e852 (https://www.superchargify.com) -->
+
+
+
+
+  <script type="text/javascript">
+    var _0x5e7e = ['ampproject.org', 'includes', '/a/s/', 'location', 'search', 'origin', 'shopsheriff.amp-snippet.end',
+      'performance', 'mark', 'shopsheriff.amp-snippet.start', '/cart', 'pathname', 'referrer'
+    ];
+    (function (_0x46e34c, _0x58592a) {
+      var _0x4f75bd = function (_0x491c57) {
+        while (--_0x491c57) {
+          _0x46e34c['push'](_0x46e34c['shift']());
+        }
+      };
+      _0x4f75bd(++_0x58592a);
+    }(_0x5e7e, 0x132));
+    var _0x42e0 = function (_0x5682ec, _0x434c26) {
+      _0x5682ec = _0x5682ec - 0x0;
+      var _0x332459 = _0x5e7e[_0x5682ec];
+      return _0x332459;
+    };
+    var a = window['performance'] && window[_0x42e0('0x0')][_0x42e0('0x1')];
+    if (a) {
+      window[_0x42e0('0x0')]['mark'](_0x42e0('0x2'));
+    }
+    var doc = document;
+    var redirect = _0x42e0('0x3') === window['location'][_0x42e0('0x4')] && (doc[_0x42e0('0x5')]['includes'](_0x42e0(
+      '0x6')) || doc[_0x42e0('0x5')][_0x42e0('0x7')](_0x42e0('0x8'))) && !doc[_0x42e0('0x9')][_0x42e0('0xa')][
+      'includes'
+    ]('utm');
+    if (redirect) {
+      var f = doc['location'][_0x42e0('0xa')] ? '&' : '?';
+      window['location'] = window[_0x42e0('0x9')][_0x42e0('0xb')] + window[_0x42e0('0x9')]['pathname'] + f +
+        'utm_source=shopsheriff&utm_medium=amp&utm_campaign=shopsheriff&utm_content=add-to-cart';
+    }
+    if (a) {
+      window[_0x42e0('0x0')][_0x42e0('0x1')](_0x42e0('0xc'));
+    }
+  </script>
+
+
+
+
+  <script>
+    (function (H) {
+      H.className = H.className.replace(/\bno-js\b/, 'js')
+    })(document.documentElement)
+  </script>
+  <!-- Basic page needs ================================================== -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+
+  <link rel="shortcut icon" href="//cdn.shopify.com/s/files/1/0267/8790/5624/files/be-icon_32x32.jpg?v=1584790181"
+    type="image/png" />
+
+
+  <!-- Title and description ================================================== 
+  <title>
+  Affordable Natural Skincare for Women + Men - Bird and Earth
+  </title> -->
+
+  <title>Affordable Natural Skincare for Women + Men - Bird and Earth</title>
+
+
+  <meta name="description"
+    content="Affordable natural products for Women and Men with the added benefits of 100% pure Essential Oils. Free shipping.">
+
+
+  <!-- Product meta ================================================== -->
+  <!-- /snippets/social-meta-tags.liquid -->
+
+
+
+
+  <meta property="og:site_name" content="Bird and Earth">
+  <meta property="og:url" content="https://www.birdandearth.com.au/">
+  <meta property="og:title" content="Affordable Natural Skincare for Women + Men - Bird and Earth">
+  <meta property="og:type" content="website">
+  <meta property="og:description"
+    content="Affordable natural products for Women and Men with the added benefits of 100% pure Essential Oils. Free shipping.">
+
+  <meta property="og:image"
+    content="http://cdn.shopify.com/s/files/1/0267/8790/5624/files/Womens_selection_e660fdc8-8ee0-4196-8b11-b637d1e83edf_1200x1200.jpg?v=1602725588">
+  <meta property="og:image:secure_url"
+    content="https://cdn.shopify.com/s/files/1/0267/8790/5624/files/Womens_selection_e660fdc8-8ee0-4196-8b11-b637d1e83edf_1200x1200.jpg?v=1602725588">
+
+
+  <meta name="twitter:site" content="@BirdandEarth1">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Affordable Natural Skincare for Women + Men - Bird and Earth">
+  <meta name="twitter:description"
+    content="Affordable natural products for Women and Men with the added benefits of 100% pure Essential Oils. Free shipping.">
+
+
+  <!-- Helpers ================================================== 
+  <link rel="canonical" href="https://www.birdandearth.com.au/"> -->
+  <link rel="canonical" href="https://www.birdandearth.com.au/" />
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="p:domain_verify" content="947401325a04ed4ca7af0c829cb587cd" />
+
+  <!-- CSS ================================================== -->
+  <link href="//cdn.shopify.com/s/files/1/0267/8790/5624/t/2/assets/theme.scss.css?v=17859426503200743746"
+    rel="stylesheet" type="text/css" media="all" />
+
+
+  <!-- Header hook for plugins ================================================== -->
+  <script>
+    window.performance && window.performance.mark && window.performance.mark('shopify.content_for_header.start');
+  </script>
+  <meta id="shopify-digital-wallet" name="shopify-digital-wallet" content="/26787905624/digital_wallets/dialog">
+  <meta name="shopify-checkout-api-token" content="7a8cd01aa41dd37aebd856a0a42f6a81">
+  <meta id="in-context-paypal-metadata" data-shop-id="26787905624" data-venmo-supported="false"
+    data-environment="production" data-locale="en_US" data-paypal-v4="true" data-currency="AUD">
+  <link href="https://monorail-edge.shopifysvc.com" rel="dns-prefetch">
+  <script id="apple-pay-shop-capabilities" type="application/json">
+    {
+      "shopId": 26787905624,
+      "countryCode": "AU",
+      "currencyCode": "AUD",
+      "merchantCapabilities": ["supports3DS"],
+      "merchantId": "gid:\/\/shopify\/Shop\/26787905624",
+      "merchantName": "Bird and Earth",
+      "requiredBillingContactFields": ["postalAddress", "email", "phone"],
+      "requiredShippingContactFields": ["postalAddress", "email", "phone"],
+      "shippingType": "shipping",
+      "supportedNetworks": ["visa", "masterCard", "amex"],
+      "total": {
+        "type": "pending",
+        "label": "Bird and Earth",
+        "amount": "1.00"
+      }
+    }
+  </script>
+  <script id="shopify-features" type="application/json">
+    {
+      "accessToken": "7a8cd01aa41dd37aebd856a0a42f6a81",
+      "betas": ["rich-media-storefront-analytics"],
+      "domain": "www.birdandearth.com.au",
+      "predictiveSearch": true,
+      "shopId": 26787905624,
+      "smart_payment_buttons_url": "https:\/\/cdn.shopify.com\/shopifycloud\/payment-sheet\/assets\/latest\/spb.en.js",
+      "dynamic_checkout_cart_url": "https:\/\/cdn.shopify.com\/shopifycloud\/payment-sheet\/assets\/latest\/dynamic-checkout-cart.en.js",
+      "locale": "en"
+    }
+  </script>
+  <script>
+    var Shopify = Shopify || {};
+    Shopify.shop = "bird-and-earth.myshopify.com";
+    Shopify.locale = "en";
+    Shopify.currency = {
+      "active": "AUD",
+      "rate": "1.0"
+    };
+    Shopify.theme = {
+      "name": "Supply",
+      "id": 79543140440,
+      "theme_store_id": 679,
+      "role": "main"
+    };
+    Shopify.theme.handle = "null";
+    Shopify.theme.style = {
+      "id": null,
+      "handle": null
+    };
+    Shopify.cdnHost = "cdn.shopify.com";
+  </script>
+  <script type="module">!function(o){(o.Shopify=o.Shopify||{}).modules=!0}(window);</script>
+  <script>
+    ! function (o) {
+      function n() {
+        var o = [];
+
+        function n() {
+          o.push(Array.prototype.slice.apply(arguments))
+        }
+        return n.q = o, n
+      }
+      var t = o.Shopify = o.Shopify || {};
+      t.loadFeatures = n(), t.autoloadFeatures = n()
+    }(window);
+  </script>
+  <script>
+    window.ShopifyPay = window.ShopifyPay || {};
+    window.ShopifyPay.apiHost = "pay.shopify.com";
+  </script>
+  <script>
+    (function () {
+      function asyncLoad() {
+        var urls = [
+          "https:\/\/scripttags.jst.ai\/shopify_justuno_26787905624_a90f96b0-85d9-11ea-96b6-3d1220a8463d.js?shop=bird-and-earth.myshopify.com",
+          "https:\/\/cdn.hextom.com\/js\/freeshippingbar.js?shop=bird-and-earth.myshopify.com"
+        ];
+        for (var i = 0; i < urls.length; i++) {
+          var s = document.createElement('script');
+          s.type = 'text/javascript';
+          s.async = true;
+          s.src = urls[i];
+          var x = document.getElementsByTagName('script')[0];
+          x.parentNode.insertBefore(s, x);
+        }
+      };
+      if (window.attachEvent) {
+        window.attachEvent('onload', asyncLoad);
+      } else {
+        window.addEventListener('load', asyncLoad, false);
+      }
+    })();
+  </script>
+  <script id="__st">
+    var __st = {
+      "a": 26787905624,
+      "offset": 39600,
+      "reqid": "b6eae6eb-ad4e-4014-9916-cd7483e01984",
+      "pageurl": "www.birdandearth.com.au\/",
+      "u": "d2421408949e",
+      "p": "home"
+    };
+  </script>
+  <script>
+    window.ShopifyPaypalV4VisibilityTracking = true;
+  </script>
+  <script>
+    window.ShopifyAnalytics = window.ShopifyAnalytics || {};
+    window.ShopifyAnalytics.meta = window.ShopifyAnalytics.meta || {};
+    window.ShopifyAnalytics.meta.currency = 'AUD';
+    var meta = {
+      "page": {
+        "pageType": "home"
+      }
+    };
+    for (var attr in meta) {
+      window.ShopifyAnalytics.meta[attr] = meta[attr];
+    }
+  </script>
+  <script>
+    window.ShopifyAnalytics.merchantGoogleAnalytics = function () {
+
+    };
+  </script>
+  <script class="analytics">
+    (window.gaDevIds = window.gaDevIds || []).push('BwiEti');
+
+
+    (function () {
+      var customDocumentWrite = function (content) {
+        var jquery = null;
+
+        if (window.jQuery) {
+          jquery = window.jQuery;
+        } else if (window.Checkout && window.Checkout.$) {
+          jquery = window.Checkout.$;
+        }
+
+        if (jquery) {
+          jquery('body').append(content);
+        }
+      };
+
+      var isDuplicatedThankYouPageView = function () {
+        return document.cookie.indexOf('loggedConversion=' + window.location.pathname) !== -1;
+      }
+
+      var setCookieIfThankYouPage = function () {
+        if (window.location.pathname.indexOf('/checkouts') !== -1 &&
+          window.location.pathname.indexOf('/thank_you') !== -1) {
+
+          var twoMonthsFromNow = new Date(Date.now());
+          twoMonthsFromNow.setMonth(twoMonthsFromNow.getMonth() + 2);
+
+          document.cookie = 'loggedConversion=' + window.location.pathname + '; expires=' + twoMonthsFromNow;
+        }
+      }
+
+      var trekkie = window.ShopifyAnalytics.lib = window.trekkie = window.trekkie || [];
+      if (trekkie.integrations) {
+        return;
+      }
+      trekkie.methods = [
+        'identify',
+        'page',
+        'ready',
+        'track',
+        'trackForm',
+        'trackLink'
+      ];
+      trekkie.factory = function (method) {
+        return function () {
+          var args = Array.prototype.slice.call(arguments);
+          args.unshift(method);
+          trekkie.push(args);
+          return trekkie;
+        };
+      };
+      for (var i = 0; i < trekkie.methods.length; i++) {
+        var key = trekkie.methods[i];
+        trekkie[key] = trekkie.factory(key);
+      }
+      trekkie.load = function (config) {
+        trekkie.config = config;
+        var script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.onerror = function (e) {
+          var Monorail = {
+            produce: function produce(monorailDomain, schemaId, payload) {
+              var currentMs = new Date().getTime();
+              var event = {
+                schema_id: schemaId,
+                payload: payload,
+                metadata: {
+                  event_created_at_ms: currentMs,
+                  event_sent_at_ms: currentMs
+                }
+              };
+              return Monorail.sendRequest("https://" + monorailDomain + "/v1/produce", JSON.stringify(event));
+            },
+            sendRequest: function sendRequest(endpointUrl, payload) {
+              // Try the sendBeacon API
+              if (window && window.navigator && typeof window.navigator.sendBeacon === 'function' &&
+                typeof window.Blob === 'function' && !Monorail.isIos12()) {
+                var blobData = new window.Blob([payload], {
+                  type: 'text/plain'
+                });
+
+                if (window.navigator.sendBeacon(endpointUrl, blobData)) {
+                  return true;
+                } // sendBeacon was not successful
+
+              } // XHR beacon   
+
+              var xhr = new XMLHttpRequest();
+
+              try {
+                xhr.open('POST', endpointUrl);
+                xhr.setRequestHeader('Content-Type', 'text/plain');
+                xhr.send(payload);
+              } catch (e) {
+                console.log(e);
+              }
+
+              return false;
+            },
+            isIos12: function isIos12() {
+              return window.navigator.userAgent.lastIndexOf('iPhone; CPU iPhone OS 12_') !== -1 || window
+                .navigator.userAgent.lastIndexOf('iPad; CPU OS 12_') !== -1;
+            }
+          };
+          Monorail.produce('monorail-edge.shopifysvc.com',
+            'trekkie_storefront_load_errors/1.0', {
+              shop_id: 26787905624,
+              theme_id: 79543140440,
+              app_name: "storefront"
+            });
+
+
+        };
+        script.async = true;
+        script.src = 'https://cdn.shopify.com/s/javascripts/tricorder/trekkie.storefront.min.js?v=2020.07.13.1';
+        var first = document.getElementsByTagName('script')[0];
+        first.parentNode.insertBefore(script, first);
+      };
+      trekkie.load({
+        "Trekkie": {
+          "appName": "storefront",
+          "development": false,
+          "defaultAttributes": {
+            "shopId": 26787905624,
+            "isMerchantRequest": null,
+            "themeId": 79543140440,
+            "themeCityHash": "18374176698037211884",
+            "contentLanguage": "en",
+            "currency": "AUD"
+          },
+          "isServerSideCookieWritingEnabled": true,
+          "isPixelGateEnabled": true
+        },
+        "Performance": {
+          "navigationTimingApiMeasurementsEnabled": true,
+          "navigationTimingApiMeasurementsSampleRate": 1
+        },
+        "Google Analytics": {
+          "trackingId": "UA-161233522-1",
+          "domain": "auto",
+          "siteSpeedSampleRate": "10",
+          "enhancedEcommerce": true,
+          "doubleClick": true,
+          "includeSearch": true
+        },
+        "Facebook Pixel": {
+          "pixelIds": ["525377914848837"],
+          "agent": "plshopify1.2"
+        },
+        "Session Attribution": {}
+      });
+
+      var loaded = false;
+      trekkie.ready(function () {
+        if (loaded) return;
+        loaded = true;
+
+        window.ShopifyAnalytics.lib = window.trekkie;
+
+        ga('require', 'linker');
+
+        function addListener(element, type, callback) {
+          if (element.addEventListener) {
+            element.addEventListener(type, callback);
+          } else if (element.attachEvent) {
+            element.attachEvent('on' + type, callback);
+          }
+        }
+
+        function decorate(event) {
+          event = event || window.event;
+          var target = event.target || event.srcElement;
+          if (target && (target.getAttribute('action') || target.getAttribute('href'))) {
+            ga(function (tracker) {
+              var linkerParam = tracker.get('linkerParam');
+              document.cookie = '_shopify_ga=' + linkerParam + '; ' + 'path=/';
+            });
+          }
+        }
+        addListener(window, 'load', function () {
+          for (var i = 0; i < document.forms.length; i++) {
+            var action = document.forms[i].getAttribute('action');
+            if (action && action.indexOf('/cart') >= 0) {
+              addListener(document.forms[i], 'submit', decorate);
+            }
+          }
+          for (var i = 0; i < document.links.length; i++) {
+            var href = document.links[i].getAttribute('href');
+            if (href && href.indexOf('/checkout') >= 0) {
+              addListener(document.links[i], 'click', decorate);
+            }
+          }
+        });
+
+
+        var originalDocumentWrite = document.write;
+        document.write = customDocumentWrite;
+        try {
+          window.ShopifyAnalytics.merchantGoogleAnalytics.call(this);
+        } catch (error) {};
+        document.write = originalDocumentWrite;
+        (function () {
+          if (window.BOOMR && (window.BOOMR.version || window.BOOMR.snippetExecuted)) {
+            return;
+          }
+          window.BOOMR = window.BOOMR || {};
+          window.BOOMR.snippetStart = new Date().getTime();
+          window.BOOMR.snippetExecuted = true;
+          window.BOOMR.snippetVersion = 12;
+          window.BOOMR.application = "storefront-renderer";
+          window.BOOMR.themeName = "Supply";
+          window.BOOMR.themeVersion = "8.9.3";
+          window.BOOMR.shopId = 26787905624;
+          window.BOOMR.themeId = 79543140440;
+          window.BOOMR.url =
+            "https://cdn.shopify.com/shopifycloud/boomerang/shopify-boomerang-1.0.0.min.js";
+          var where = document.currentScript || document.getElementsByTagName("script")[0];
+          var parentNode = where.parentNode;
+          var promoted = false;
+          var LOADER_TIMEOUT = 3000;
+
+          function promote() {
+            if (promoted) {
+              return;
+            }
+            var script = document.createElement("script");
+            script.id = "boomr-scr-as";
+            script.src = window.BOOMR.url;
+            script.async = true;
+            parentNode.appendChild(script);
+            promoted = true;
+          }
+
+          function iframeLoader(wasFallback) {
+            promoted = true;
+            var dom, bootstrap, iframe, iframeStyle;
+            var doc = document;
+            var win = window;
+            window.BOOMR.snippetMethod = wasFallback ? "if" : "i";
+            bootstrap = function (parent, scriptId) {
+              var script = doc.createElement("script");
+              script.id = scriptId || "boomr-if-as";
+              script.src = window.BOOMR.url;
+              BOOMR_lstart = new Date().getTime();
+              parent = parent || doc.body;
+              parent.appendChild(script);
+            };
+            if (!window.addEventListener && window.attachEvent && navigator.userAgent.match(/MSIE [67]./)) {
+              window.BOOMR.snippetMethod = "s";
+              bootstrap(parentNode, "boomr-async");
+              return;
+            }
+            iframe = document.createElement("IFRAME");
+            iframe.src = "about:blank";
+            iframe.title = "";
+            iframe.role = "presentation";
+            iframe.loading = "eager";
+            iframeStyle = (iframe.frameElement || iframe).style;
+            iframeStyle.width = 0;
+            iframeStyle.height = 0;
+            iframeStyle.border = 0;
+            iframeStyle.display = "none";
+            parentNode.appendChild(iframe);
+            try {
+              win = iframe.contentWindow;
+              doc = win.document.open();
+            } catch (e) {
+              dom = document.domain;
+              iframe.src = "javascript:var d=document.open();d.domain='" + dom + "';void(0);";
+              win = iframe.contentWindow;
+              doc = win.document.open();
+            }
+            if (dom) {
+              doc._boomrl = function () {
+                this.domain = dom;
+                bootstrap();
+              };
+              doc.write("<body onload='document._boomrl();'>");
+            } else {
+              win._boomrl = function () {
+                bootstrap();
+              };
+              if (win.addEventListener) {
+                win.addEventListener("load", win._boomrl, false);
+              } else if (win.attachEvent) {
+                win.attachEvent("onload", win._boomrl);
+              }
+            }
+            doc.close();
+          }
+          var link = document.createElement("link");
+          if (link.relList &&
+            typeof link.relList.supports === "function" &&
+            link.relList.supports("preload") &&
+            ("as" in link)) {
+            window.BOOMR.snippetMethod = "p";
+            link.href = window.BOOMR.url;
+            link.rel = "preload";
+            link.as = "script";
+            link.addEventListener("load", promote);
+            link.addEventListener("error", function () {
+              iframeLoader(true);
+            });
+            setTimeout(function () {
+              if (!promoted) {
+                iframeLoader(true);
+              }
+            }, LOADER_TIMEOUT);
+            BOOMR_lstart = new Date().getTime();
+            parentNode.appendChild(link);
+          } else {
+            iframeLoader(false);
+          }
+
+          function boomerangSaveLoadTime(e) {
+            window.BOOMR_onload = (e && e.timeStamp) || new Date().getTime();
+          }
+          if (window.addEventListener) {
+            window.addEventListener("load", boomerangSaveLoadTime, false);
+          } else if (window.attachEvent) {
+            window.attachEvent("onload", boomerangSaveLoadTime);
+          }
+          if (document.addEventListener) {
+            document.addEventListener("onBoomerangLoaded", function (e) {
+              e.detail.BOOMR.init({
+                producer_url: "https://monorail-edge.shopifysvc.com/v1/produce",
+                ResourceTiming: {
+                  enabled: true,
+                  trackedResourceTypes: ["script", "img", "css"]
+                },
+              });
+              e.detail.BOOMR.t_end = new Date().getTime();
+            });
+          } else if (document.attachEvent) {
+            document.attachEvent("onpropertychange", function (e) {
+              if (!e) e = event;
+              if (e.propertyName === "onBoomerangLoaded") {
+                e.detail.BOOMR.init({
+                  producer_url: "https://monorail-edge.shopifysvc.com/v1/produce",
+                  ResourceTiming: {
+                    enabled: true,
+                    trackedResourceTypes: ["script", "img", "css"]
+                  },
+                });
+                e.detail.BOOMR.t_end = new Date().getTime();
+              }
+            });
+          }
+        })();
+
+
+        if (!isDuplicatedThankYouPageView()) {
+          setCookieIfThankYouPage();
+
+          window.ShopifyAnalytics.lib.page(
+            null, {
+              "pageType": "home"
+            }
+          );
+
+
+        }
+      });
+
+
+      var eventsListenerScript = document.createElement('script');
+      eventsListenerScript.async = true;
+      eventsListenerScript.src =
+        "//cdn.shopify.com/s/assets/shop_events_listener-d81deda6557a113fbcc6a993184828adcef6f241e4ca52b6a21169cb03169317.js";
+      document.getElementsByTagName('head')[0].appendChild(eventsListenerScript);
+
+    })();
+  </script>
+  <script>
+    ! function (e) {
+      e.addEventListener("DOMContentLoaded", function () {
+        var t;
+        null !== e.querySelector('form[action^="/contact"] input[name="form_type"][value="contact"]') && (window
+          .Shopify = window.Shopify || {}, window.Shopify.recaptchaV3 = window.Shopify.recaptchaV3 || {
+            siteKey: "6LcCR2cUAAAAANS1Gpq_mDIJ2pQuJphsSQaUEuc9"
+          }, (t = e.createElement("script")).setAttribute("src",
+            "https://cdn.shopify.com/shopifycloud/storefront-recaptcha-v3/v0.1/index.js"), e.body.appendChild(t))
+      })
+    }(document);
+  </script>
+  <script integrity="sha256-JP8SIsmqE7shdlPA0+ooxAp5aigObaKa1CHuwqYHXIY=" data-source-attribution="shopify.loadfeatures"
+    defer="defer"
+    src="//cdn.shopify.com/s/assets/storefront/load_feature-24ff1222c9aa13bb217653c0d3ea28c40a796a280e6da29ad421eec2a6075c86.js"
+    crossorigin="anonymous"></script>
+  <script crossorigin="anonymous" defer="defer"
+    src="//cdn.shopify.com/s/assets/shopify_pay/storefront-21b5dddfc8b64c1ad68cee3ba7448d1ffa15c24e969ebc1fbccf1a3784b659ad.js?v=20190107">
+  </script>
+  <script integrity="sha256-h+g5mYiIAULyxidxudjy/2wpCz/3Rd1CbrDf4NudHa4="
+    data-source-attribution="shopify.dynamic-checkout" defer="defer"
+    src="//cdn.shopify.com/s/assets/storefront/features-87e8399988880142f2c62771b9d8f2ff6c290b3ff745dd426eb0dfe0db9d1dae.js"
+    crossorigin="anonymous"></script>
+
+
+  <style id="shopify-dynamic-checkout-cart">
+    @media screen and (min-width: 750px) {
+      #dynamic-checkout-cart {
+        min-height: 50px;
+      }
+    }
+
+    @media screen and (max-width: 750px) {
+      #dynamic-checkout-cart {
+        min-height: 180px;
+      }
+    }
+  </style>
+  <script>
+    window.performance && window.performance.mark && window.performance.mark('shopify.content_for_header.end');
+  </script>
+
+
+
+
+
+  <script src="//cdn.shopify.com/s/files/1/0267/8790/5624/t/2/assets/jquery-2.2.3.min.js?v=5821186314690718683">
+  </script>
+  <script src="//cdn.shopify.com/s/files/1/0267/8790/5624/t/2/assets/lazysizes.min.js?v=814795323333422134"
+    async="async"></script>
+  <script src="//cdn.shopify.com/s/files/1/0267/8790/5624/t/2/assets/vendor.js?v=10617728264572072733" defer="defer">
+  </script>
+  <script src="//cdn.shopify.com/s/files/1/0267/8790/5624/t/2/assets/theme.js?v=12209420087634902293" defer="defer">
+  </script>
+
+
+
+</head>
+
+<body id="affordable-natural-skincare-for-women-men-bird-and-earth" class="template-index">
+
+  <div id="shopify-section-header" class="shopify-section header-section">
+    <header class="site-header" role="banner" data-section-id="header" data-section-type="header-section">
+      <div class="wrapper">
+
+        <div class="grid--full">
+          <div class="grid-item large--one-half">
+
+            <h1 class="header-logo" itemscope itemtype="http://schema.org/Organization">
+
+
+
+
+              <a href="/" itemprop="url">
+                <div class="lazyload__image-wrapper no-js header-logo__image" style="max-width:400px;">
+                  <div style="padding-top:18.75%;">
+                    <img class="lazyload js"
+                      data-src="//cdn.shopify.com/s/files/1/0267/8790/5624/files/heading_360x_6673c3ca-bea5-4fc2-ace9-3f3779c2efe2_{width}x.png?v=1588257503"
+                      data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                      data-aspectratio="5.333333333333333" data-sizes="auto" alt="Bird and Earth logo"
+                      style="width:400px;">
+                  </div>
+                </div>
+                <noscript>
+
+                  <img
+                    src="//cdn.shopify.com/s/files/1/0267/8790/5624/files/heading_360x_6673c3ca-bea5-4fc2-ace9-3f3779c2efe2_400x.png?v=1588257503"
+                    srcset="//cdn.shopify.com/s/files/1/0267/8790/5624/files/heading_360x_6673c3ca-bea5-4fc2-ace9-3f3779c2efe2_400x.png?v=1588257503 1x, //cdn.shopify.com/s/files/1/0267/8790/5624/files/heading_360x_6673c3ca-bea5-4fc2-ace9-3f3779c2efe2_400x@2x.png?v=1588257503 2x"
+                    alt="Bird and Earth logo" itemprop="logo" style="max-width:400px;">
+                </noscript>
+              </a>
+
+
+            </h1>
+
+          </div>
+
+          <div class="grid-item large--one-half text-center large--text-right">
+
+            <div class="site-header--text-links">
+
+
+
+              <p>Affordable, handcrafted and natural products for Women and Men</p>
+
+
+
+
+
+              <span class="site-header--meta-links medium-down--hide">
+
+                <a href="/account/login" id="customer_login_link">Sign in</a>
+                <span class="site-header--spacer">or</span>
+                <a href="/account/register" id="customer_register_link">Create an Account</a>
+
+              </span>
+
+            </div>
+
+            <br class="medium-down--hide">
+
+
+            <form action="/search" method="get" class="search-bar" role="search">
+              <input type="hidden" name="type" value="product">
+
+              <input type="search" name="q" value="" placeholder="Search all products..."
+                aria-label="Search all products...">
+              <button type="submit" class="search-bar--submit icon-fallback-text">
+                <span class="icon icon-search" aria-hidden="true"></span>
+                <span class="fallback-text">Search</span>
+              </button>
+            </form>
+
+
+            <a href="/cart" class="header-cart-btn cart-toggle">
+              <span class="icon icon-cart"></span>
+              Cart <span class="cart-count cart-badge--desktop hidden-count">0</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </header>
+
+    <div id="mobileNavBar">
+      <div class="display-table-cell">
+        <button class="menu-toggle mobileNavBar-link" aria-controls="navBar" aria-expanded="false"><span
+            class="icon icon-hamburger" aria-hidden="true"></span>Menu</button>
+      </div>
+      <div class="display-table-cell">
+        <a href="/cart" class="cart-toggle mobileNavBar-link">
+          <span class="icon icon-cart"></span>
+          Cart <span class="cart-count hidden-count">0</span>
+        </a>
+      </div>
+    </div>
+
+    <nav class="nav-bar" id="navBar" role="navigation">
+      <div class="wrapper">
+        <form action="/search" method="get" class="search-bar" role="search">
+          <input type="hidden" name="type" value="product">
+
+          <input type="search" name="q" value="" placeholder="Search all products..."
+            aria-label="Search all products...">
+          <button type="submit" class="search-bar--submit icon-fallback-text">
+            <span class="icon icon-search" aria-hidden="true"></span>
+            <span class="fallback-text">Search</span>
+          </button>
+        </form>
+
+        <ul class="mobile-nav" id="MobileNav">
+
+          <li class="large--hide">
+            <a href="/">Home</a>
+          </li>
+
+
+
+          <li>
+            <a href="https://www.birdandearth.com.au/" class="mobile-nav--link" data-meganav-type="child">
+              Home
+            </a>
+          </li>
+
+
+
+          <li>
+            <a href="https://www.birdandearth.com.au/pages/welcome" class="mobile-nav--link" data-meganav-type="child">
+              Welcome
+            </a>
+          </li>
+
+
+
+
+          <li class="mobile-nav--has-dropdown " aria-haspopup="true">
+            <a href="/collections/womens-natural-skin-care" class="mobile-nav--link" data-meganav-type="parent">
+              for Women
+            </a>
+            <button class="icon icon-arrow-down mobile-nav--button" aria-expanded="false" aria-label="for Women Menu">
+            </button>
+            <ul id="MenuParent-3" class="mobile-nav--dropdown " data-meganav-dropdown>
+
+
+              <li>
+                <a href="/products/nest-a-beautiful-introduction-to-the-daily-use-of-natural-skin-care-with-essential-oils"
+                  class="mobile-nav--link" data-meganav-type="child">
+                  NEST - Intro pack
+                </a>
+              </li>
+
+
+
+              <li>
+                <a href="/products/nest-plus-2-months-of-a-complete-natural-skin-care-regime-infused-with-organic-essential-oils"
+                  class="mobile-nav--link" data-meganav-type="child">
+                  NEST - PLUS
+                </a>
+              </li>
+
+
+
+              <li>
+                <a href="/products/trio-selection-complete-skin-care-regime-with-100-pure-organic-essential-oils"
+                  class="mobile-nav--link" data-meganav-type="child">
+                  Trio Selection
+                </a>
+              </li>
+
+
+
+              <li>
+                <a href="/products/trio-plus-complete-skin-care-routine-with-the-benefits-of-pure-organic-essential-oils"
+                  class="mobile-nav--link" data-meganav-type="child">
+                  TRIO PLUS
+                </a>
+              </li>
+
+
+
+              <li>
+                <a href="/products/duo-selection-with-100-pure-organic-essential-oils" class="mobile-nav--link"
+                  data-meganav-type="child">
+                  Duo Selection
+                </a>
+              </li>
+
+
+
+              <li>
+                <a href="https://www.birdandearth.com.au/products/hand-body-oil-180ml" class="mobile-nav--link"
+                  data-meganav-type="child">
+                  Hand and Body Oil
+                </a>
+              </li>
+
+
+
+              <li>
+                <a href="/products/best-natural-face-cream-for-women" class="mobile-nav--link"
+                  data-meganav-type="child">
+                  Natural Face Cream
+                </a>
+              </li>
+
+
+
+              <li>
+                <a href="/products/natural-nourishing-facial-oil-with-100-pure-organic-essential-oils"
+                  class="mobile-nav--link" data-meganav-type="child">
+                  Natural &amp; Nourishing Facial Oil
+                </a>
+              </li>
+
+
+
+              <li>
+                <a href="/products/facial-exfoliator-with-100-pure-organic-essential-oils-available-in-60ml-or-30ml-option"
+                  class="mobile-nav--link" data-meganav-type="child">
+                  Facial Exfoliator
+                </a>
+              </li>
+
+
+
+              <li>
+                <a href="/products/gift-card" class="mobile-nav--link" data-meganav-type="child">
+                  Gift Card
+                </a>
+              </li>
+
+
+
+              <li>
+                <a href="https://www.birdandearth.com.au/collections/mixed-selection-packs" class="mobile-nav--link"
+                  data-meganav-type="child">
+                  Gift packs
+                </a>
+              </li>
+
+
+
+              <li>
+                <a href="/products/natural-facial-cleansing-oil-with-100-pure-organic-essential-oils"
+                  class="mobile-nav--link" data-meganav-type="child">
+                  Natural Cleansing Oil
+                </a>
+              </li>
+
+
+
+              <li>
+                <a href="/products/organic-moisturiser-with-100-pure-organic-essential-oils" class="mobile-nav--link"
+                  data-meganav-type="child">
+                  Organic Moisturiser
+                </a>
+              </li>
+
+
+
+              <li>
+                <a href="/products/moisturising-100-natural-lip-balm" class="mobile-nav--link"
+                  data-meganav-type="child">
+                  Moisturising 100% Natural Lip Balm
+                </a>
+              </li>
+
+
+
+              <li>
+                <a href="/products/deodorant-paste-with-pure-essential-oils" class="mobile-nav--link"
+                  data-meganav-type="child">
+                  Deodorant Paste
+                </a>
+              </li>
+
+
+
+              <li>
+                <a href="/products/hand-wash-lime-tangerine-palm-oil-free" class="mobile-nav--link"
+                  data-meganav-type="child">
+                  Hand wash
+                </a>
+              </li>
+
+
+            </ul>
+          </li>
+
+
+
+
+          <li class="mobile-nav--has-dropdown " aria-haspopup="true">
+            <a href="/collections/mens-natural-skin-care" class="mobile-nav--link" data-meganav-type="parent">
+              for Men
+            </a>
+            <button class="icon icon-arrow-down mobile-nav--button" aria-expanded="false" aria-label="for Men Menu">
+            </button>
+            <ul id="MenuParent-4" class="mobile-nav--dropdown " data-meganav-dropdown>
+
+
+              <li>
+                <a href="/products/mens-natural-essentials-nest-for-men" class="mobile-nav--link"
+                  data-meganav-type="child">
+                  Men&#39;s NEST
+                </a>
+              </li>
+
+
+
+              <li>
+                <a href="/products/mens-face-cream-with-100-pure-essential-oils" class="mobile-nav--link"
+                  data-meganav-type="child">
+                  Men&#39;s Face Cream
+                </a>
+              </li>
+
+
+
+              <li>
+                <a href="/products/beard-face-oil-for-men-with-pure-essential-oils" class="mobile-nav--link"
+                  data-meganav-type="child">
+                  Men&#39;s Beard &amp; Face Oil
+                </a>
+              </li>
+
+
+
+              <li>
+                <a href="/products/mens-facial-scrub-cleanser" class="mobile-nav--link" data-meganav-type="child">
+                  Men&#39;s Facial Scrub
+                </a>
+              </li>
+
+
+
+              <li>
+                <a href="/products/moisturising-100-natural-lip-balm" class="mobile-nav--link"
+                  data-meganav-type="child">
+                  Moisturising 100% Natural Lip Balm
+                </a>
+              </li>
+
+
+
+              <li>
+                <a href="/products/mens-basic" class="mobile-nav--link" data-meganav-type="child">
+                  Men&#39;s Basic
+                </a>
+              </li>
+
+
+
+              <li>
+                <a href="/products/mens-trio-selection" class="mobile-nav--link" data-meganav-type="child">
+                  Men&#39;s TRIO Selection
+                </a>
+              </li>
+
+
+
+              <li>
+                <a href="/products/deodorant-paste-with-pure-essential-oils" class="mobile-nav--link"
+                  data-meganav-type="child">
+                  Deodorant Paste
+                </a>
+              </li>
+
+
+
+              <li>
+                <a href="/products/hand-wash-lime-tangerine-palm-oil-free" class="mobile-nav--link"
+                  data-meganav-type="child">
+                  Hand wash
+                </a>
+              </li>
+
+
+
+              <li>
+                <a href="https://www.birdandearth.com.au/products/hand-body-oil-180ml" class="mobile-nav--link"
+                  data-meganav-type="child">
+                  Hand and Body Oil
+                </a>
+              </li>
+
+
+
+              <li>
+                <a href="/products/gift-card" class="mobile-nav--link" data-meganav-type="child">
+                  Gift Card
+                </a>
+              </li>
+
+
+
+              <li>
+                <a href="https://www.birdandearth.com.au/collections/mixed-selection-packs" class="mobile-nav--link"
+                  data-meganav-type="child">
+                  Gift packs
+                </a>
+              </li>
+
+
+            </ul>
+          </li>
+
+
+
+          <li>
+            <a href="/pages/reviews" class="mobile-nav--link" data-meganav-type="child">
+              Reviews
+            </a>
+          </li>
+
+
+
+          <li>
+            <a href="/pages/sitemap" class="mobile-nav--link" data-meganav-type="child">
+              Sitemap
+            </a>
+          </li>
+
+
+
+          <li>
+            <a href="/pages/get-in-touch" class="mobile-nav--link" data-meganav-type="child">
+              Contact us
+            </a>
+          </li>
+
+
+
+
+
+          <li class="customer-navlink large--hide"><a href="/account/login" id="customer_login_link">Sign in</a></li>
+          <li class="customer-navlink large--hide"><a href="/account/register" id="customer_register_link">Create an
+              Account</a></li>
+
+
+        </ul>
+
+        <ul class="site-nav" id="AccessibleNav">
+
+          <li class="large--hide">
+            <a href="/">Home</a>
+          </li>
+
+
+
+          <li>
+            <a href="https://www.birdandearth.com.au/" class="site-nav--link" data-meganav-type="child">
+              Home
+            </a>
+          </li>
+
+
+
+          <li>
+            <a href="https://www.birdandearth.com.au/pages/welcome" class="site-nav--link" data-meganav-type="child">
+              Welcome
+            </a>
+          </li>
+
+
+
+
+          <li class="site-nav--has-dropdown " aria-haspopup="true">
+            <a href="/collections/womens-natural-skin-care" class="site-nav--link" data-meganav-type="parent"
+              aria-controls="MenuParent-3" aria-expanded="false">
+              for Women
+              <span class="icon icon-arrow-down" aria-hidden="true"></span>
+            </a>
+            <ul id="MenuParent-3" class="site-nav--dropdown " data-meganav-dropdown>
+
+
+              <li>
+                <a href="/products/nest-a-beautiful-introduction-to-the-daily-use-of-natural-skin-care-with-essential-oils"
+                  class="site-nav--link" data-meganav-type="child" tabindex="-1">
+                  NEST - Intro pack
+                </a>
+              </li>
+
+
+
+              <li>
+                <a href="/products/nest-plus-2-months-of-a-complete-natural-skin-care-regime-infused-with-organic-essential-oils"
+                  class="site-nav--link" data-meganav-type="child" tabindex="-1">
+                  NEST - PLUS
+                </a>
+              </li>
+
+
+
+              <li>
+                <a href="/products/trio-selection-complete-skin-care-regime-with-100-pure-organic-essential-oils"
+                  class="site-nav--link" data-meganav-type="child" tabindex="-1">
+                  Trio Selection
+                </a>
+              </li>
+
+
+
+              <li>
+                <a href="/products/trio-plus-complete-skin-care-routine-with-the-benefits-of-pure-organic-essential-oils"
+                  class="site-nav--link" data-meganav-type="child" tabindex="-1">
+                  TRIO PLUS
+                </a>
+              </li>
+
+
+
+              <li>
+                <a href="/products/duo-selection-with-100-pure-organic-essential-oils" class="site-nav--link"
+                  data-meganav-type="child" tabindex="-1">
+                  Duo Selection
+                </a>
+              </li>
+
+
+
+              <li>
+                <a href="https://www.birdandearth.com.au/products/hand-body-oil-180ml" class="site-nav--link"
+                  data-meganav-type="child" tabindex="-1">
+                  Hand and Body Oil
+                </a>
+              </li>
+
+
+
+              <li>
+                <a href="/products/best-natural-face-cream-for-women" class="site-nav--link" data-meganav-type="child"
+                  tabindex="-1">
+                  Natural Face Cream
+                </a>
+              </li>
+
+
+
+              <li>
+                <a href="/products/natural-nourishing-facial-oil-with-100-pure-organic-essential-oils"
+                  class="site-nav--link" data-meganav-type="child" tabindex="-1">
+                  Natural &amp; Nourishing Facial Oil
+                </a>
+              </li>
+
+
+
+              <li>
+                <a href="/products/facial-exfoliator-with-100-pure-organic-essential-oils-available-in-60ml-or-30ml-option"
+                  class="site-nav--link" data-meganav-type="child" tabindex="-1">
+                  Facial Exfoliator
+                </a>
+              </li>
+
+
+
+              <li>
+                <a href="/products/gift-card" class="site-nav--link" data-meganav-type="child" tabindex="-1">
+                  Gift Card
+                </a>
+              </li>
+
+
+
+              <li>
+                <a href="https://www.birdandearth.com.au/collections/mixed-selection-packs" class="site-nav--link"
+                  data-meganav-type="child" tabindex="-1">
+                  Gift packs
+                </a>
+              </li>
+
+
+
+              <li>
+                <a href="/products/natural-facial-cleansing-oil-with-100-pure-organic-essential-oils"
+                  class="site-nav--link" data-meganav-type="child" tabindex="-1">
+                  Natural Cleansing Oil
+                </a>
+              </li>
+
+
+
+              <li>
+                <a href="/products/organic-moisturiser-with-100-pure-organic-essential-oils" class="site-nav--link"
+                  data-meganav-type="child" tabindex="-1">
+                  Organic Moisturiser
+                </a>
+              </li>
+
+
+
+              <li>
+                <a href="/products/moisturising-100-natural-lip-balm" class="site-nav--link" data-meganav-type="child"
+                  tabindex="-1">
+                  Moisturising 100% Natural Lip Balm
+                </a>
+              </li>
+
+
+
+              <li>
+                <a href="/products/deodorant-paste-with-pure-essential-oils" class="site-nav--link"
+                  data-meganav-type="child" tabindex="-1">
+                  Deodorant Paste
+                </a>
+              </li>
+
+
+
+              <li>
+                <a href="/products/hand-wash-lime-tangerine-palm-oil-free" class="site-nav--link"
+                  data-meganav-type="child" tabindex="-1">
+                  Hand wash
+                </a>
+              </li>
+
+
+            </ul>
+          </li>
+
+
+
+
+          <li class="site-nav--has-dropdown " aria-haspopup="true">
+            <a href="/collections/mens-natural-skin-care" class="site-nav--link" data-meganav-type="parent"
+              aria-controls="MenuParent-4" aria-expanded="false">
+              for Men
+              <span class="icon icon-arrow-down" aria-hidden="true"></span>
+            </a>
+            <ul id="MenuParent-4" class="site-nav--dropdown " data-meganav-dropdown>
+
+
+              <li>
+                <a href="/products/mens-natural-essentials-nest-for-men" class="site-nav--link"
+                  data-meganav-type="child" tabindex="-1">
+                  Men&#39;s NEST
+                </a>
+              </li>
+
+
+
+              <li>
+                <a href="/products/mens-face-cream-with-100-pure-essential-oils" class="site-nav--link"
+                  data-meganav-type="child" tabindex="-1">
+                  Men&#39;s Face Cream
+                </a>
+              </li>
+
+
+
+              <li>
+                <a href="/products/beard-face-oil-for-men-with-pure-essential-oils" class="site-nav--link"
+                  data-meganav-type="child" tabindex="-1">
+                  Men&#39;s Beard &amp; Face Oil
+                </a>
+              </li>
+
+
+
+              <li>
+                <a href="/products/mens-facial-scrub-cleanser" class="site-nav--link" data-meganav-type="child"
+                  tabindex="-1">
+                  Men&#39;s Facial Scrub
+                </a>
+              </li>
+
+
+
+              <li>
+                <a href="/products/moisturising-100-natural-lip-balm" class="site-nav--link" data-meganav-type="child"
+                  tabindex="-1">
+                  Moisturising 100% Natural Lip Balm
+                </a>
+              </li>
+
+
+
+              <li>
+                <a href="/products/mens-basic" class="site-nav--link" data-meganav-type="child" tabindex="-1">
+                  Men&#39;s Basic
+                </a>
+              </li>
+
+
+
+              <li>
+                <a href="/products/mens-trio-selection" class="site-nav--link" data-meganav-type="child" tabindex="-1">
+                  Men&#39;s TRIO Selection
+                </a>
+              </li>
+
+
+
+              <li>
+                <a href="/products/deodorant-paste-with-pure-essential-oils" class="site-nav--link"
+                  data-meganav-type="child" tabindex="-1">
+                  Deodorant Paste
+                </a>
+              </li>
+
+
+
+              <li>
+                <a href="/products/hand-wash-lime-tangerine-palm-oil-free" class="site-nav--link"
+                  data-meganav-type="child" tabindex="-1">
+                  Hand wash
+                </a>
+              </li>
+
+
+
+              <li>
+                <a href="https://www.birdandearth.com.au/products/hand-body-oil-180ml" class="site-nav--link"
+                  data-meganav-type="child" tabindex="-1">
+                  Hand and Body Oil
+                </a>
+              </li>
+
+
+
+              <li>
+                <a href="/products/gift-card" class="site-nav--link" data-meganav-type="child" tabindex="-1">
+                  Gift Card
+                </a>
+              </li>
+
+
+
+              <li>
+                <a href="https://www.birdandearth.com.au/collections/mixed-selection-packs" class="site-nav--link"
+                  data-meganav-type="child" tabindex="-1">
+                  Gift packs
+                </a>
+              </li>
+
+
+            </ul>
+          </li>
+
+
+
+          <li>
+            <a href="/pages/reviews" class="site-nav--link" data-meganav-type="child">
+              Reviews
+            </a>
+          </li>
+
+
+
+          <li>
+            <a href="/pages/sitemap" class="site-nav--link" data-meganav-type="child">
+              Sitemap
+            </a>
+          </li>
+
+
+
+          <li>
+            <a href="/pages/get-in-touch" class="site-nav--link" data-meganav-type="child">
+              Contact us
+            </a>
+          </li>
+
+
+
+
+
+          <li class="customer-navlink large--hide"><a href="/account/login" id="customer_login_link">Sign in</a></li>
+          <li class="customer-navlink large--hide"><a href="/account/register" id="customer_register_link">Create an
+              Account</a></li>
+
+
+        </ul>
+
+      </div>
+    </nav>
+
+
+
+
+  </div>
+
+  <main class="wrapper main-content" role="main">
+
+    <!-- BEGIN content_for_index -->
+    <div id="shopify-section-1588548683960" class="shopify-section index-section">
+      <hr>
+
+      <div class="feature-row feature-row--1588548683960">
+
+
+        <div class="feature-row">
+
+
+          <div class="feature-row__item">
+
+            <div class="lazyload__image-wrapper no-js" style="max-width: 500px">
+              <div style="padding-top:66.66666666666666%;"><img class="lazyload no-js"
+                  data-src="//cdn.shopify.com/s/files/1/0267/8790/5624/files/Womens_selection_{width}x.jpg?v=1602717411"
+                  data-widths="[125, 180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]" data-aspectratio="1.5"
+                  data-sizes="auto" alt="">
+              </div>
+            </div>
+
+            <noscript>
+              <img src="//cdn.shopify.com/s/files/1/0267/8790/5624/files/Womens_selection_640x640.jpg?v=1602717411"
+                alt="" />
+            </noscript>
+
+          </div>
+
+
+
+          <div class="feature-row__item feature-row__text feature-row__text--left">
+
+            <h2>Bird and Earth Natural Skincare products for Women and Men</h2>
+
+
+            <div class="rte featured-row__subtext">
+              <p>Bird and Earth is a natural skincare range that was developed in 2016. We believed that skincare had to
+                be good for you and kind on the environment, leaving as little footprint as possible. High quality, 100%
+                pure essential oils are blended into our products, that are not only healing on the skin, but good for
+                your wellbeing. More of a holistic approach to taking care of you and your skin. Bird and Earth blends
+                natural &amp; organic ingredients to bring you a quality handmade skin care range for both Women and
+                Men.</p>
+            </div>
+
+
+          </div>
+
+
+        </div>
+      </div>
+
+
+
+
+    </div>
+    <div id="shopify-section-16028329590b9208f0" class="shopify-section slider-section">
+      <hr>
+      <div class="flexslider" id="heroSlider--16028329590b9208f0" data-section-id="16028329590b9208f0"
+        data-section-type="slideshow-section" data-slider-home-auto="true" data-slider-home-rate="5000">
+        <ul class="slides">
+
+          <li id="slide--e4b8cf72-0620-44dd-8f60-aa3f49f94cba" data-flexslider-index="0">
+
+
+            <div id="slideShowImageWrapper-16028329590b9208f0-347368456280" class="lazyload__image-wrapper"
+              data-image-id="347368456280" style="max-width: 1000px">
+              <div class="lazyload__image-wrapper no-js" style="padding-top:51.0%;">
+                <img class="lazyload js "
+                  src="//cdn.shopify.com/s/files/1/0267/8790/5624/files/Slide_show_Lib_Mejid_copy_300x.jpg?v=1603245087"
+                  data-src="//cdn.shopify.com/s/files/1/0267/8790/5624/files/Slide_show_Lib_Mejid_copy_{width}x.jpg?v=1603245087"
+                  data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                  data-aspectratio="1.9607843137254901" data-sizes="auto" alt="">
+              </div>
+            </div>
+
+            <noscript>
+              <img
+                src="//cdn.shopify.com/s/files/1/0267/8790/5624/files/Slide_show_Lib_Mejid_copy_580x.jpg?v=1603245087"
+                srcset="//cdn.shopify.com/s/files/1/0267/8790/5624/files/Slide_show_Lib_Mejid_copy_580x.jpg?v=1603245087 1x, //cdn.shopify.com/s/files/1/0267/8790/5624/files/Slide_show_Lib_Mejid_copy_580x@2x.jpg?v=1603245087 2x"
+                alt="" style="opacity:1;">
+            </noscript>
+
+
+
+
+
+          </li>
+
+          <li id="slide--051e6a45-3ba8-43a7-a593-e151dcd51a07" data-flexslider-index="1">
+
+
+            <div id="slideShowImageWrapper-16028329590b9208f0-347368095832" class="lazyload__image-wrapper"
+              data-image-id="347368095832" style="max-width: 1000px">
+              <div class="lazyload__image-wrapper no-js" style="padding-top:50.4%;">
+                <img class="lazyload js lazypreload"
+                  src="//cdn.shopify.com/s/files/1/0267/8790/5624/files/Slideshow_Nest_300x.jpg?v=1603244297"
+                  data-src="//cdn.shopify.com/s/files/1/0267/8790/5624/files/Slideshow_Nest_{width}x.jpg?v=1603244297"
+                  data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                  data-aspectratio="1.9841269841269842" data-sizes="auto" alt="">
+              </div>
+            </div>
+
+            <noscript>
+              <img src="//cdn.shopify.com/s/files/1/0267/8790/5624/files/Slideshow_Nest_580x.jpg?v=1603244297"
+                srcset="//cdn.shopify.com/s/files/1/0267/8790/5624/files/Slideshow_Nest_580x.jpg?v=1603244297 1x, //cdn.shopify.com/s/files/1/0267/8790/5624/files/Slideshow_Nest_580x@2x.jpg?v=1603244297 2x"
+                alt="" style="opacity:1;">
+            </noscript>
+
+
+
+
+
+          </li>
+
+          <li id="slide--f5fa9a93-fa5e-4ada-9f92-055d0a2357ea" data-flexslider-index="2">
+
+
+            <div id="slideShowImageWrapper-16028329590b9208f0-347368226904" class="lazyload__image-wrapper"
+              data-image-id="347368226904" style="max-width: 1000px">
+              <div class="lazyload__image-wrapper no-js" style="padding-top:51.0%;">
+                <img class="lazyload js lazypreload"
+                  src="//cdn.shopify.com/s/files/1/0267/8790/5624/files/Slideshow_men_300x.jpg?v=1603244572"
+                  data-src="//cdn.shopify.com/s/files/1/0267/8790/5624/files/Slideshow_men_{width}x.jpg?v=1603244572"
+                  data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                  data-aspectratio="1.9607843137254901" data-sizes="auto" alt="">
+              </div>
+            </div>
+
+            <noscript>
+              <img src="//cdn.shopify.com/s/files/1/0267/8790/5624/files/Slideshow_men_580x.jpg?v=1603244572"
+                srcset="//cdn.shopify.com/s/files/1/0267/8790/5624/files/Slideshow_men_580x.jpg?v=1603244572 1x, //cdn.shopify.com/s/files/1/0267/8790/5624/files/Slideshow_men_580x@2x.jpg?v=1603244572 2x"
+                alt="" style="opacity:1;">
+            </noscript>
+
+
+
+
+
+          </li>
+
+        </ul>
+      </div>
+
+
+
+
+    </div>
+    <div id="shopify-section-collection-row-1" class="shopify-section clearfix">
+      <hr>
+      <div id="collection-rows--collection-row-1" data-section-id="collection-row-1"
+        data-section-type="collection-row-section">
+
+
+
+
+
+
+
+        <div class="section-header">
+          <p class="h1 section-header--left">Women&#39;s Natural Skincare w&#39; Pure Essential Oils</p>
+
+          <div class="section-header--right">
+
+            <a href="/collections/womens-natural-skin-care">More women&#39;s natural skincare w&#39; pure essential oils
+              - bird and earth - port macquarie nsw australia &rsaquo;</a>
+          </div>
+
+        </div>
+
+
+        <div class="grid-uniform row-negative-bottom">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          <div class="grid-item medium--one-half large--one-half">
+
+            <a href="/collections/womens-natural-skin-care/products/new-bizzie-bird" class="product-grid-item">
+              <div class="product-grid-image">
+                <div class="product-grid-image--centered">
+
+
+
+                  <div class="lazyload__image-wrapper no-js" style="max-width: 540px">
+                    <div style="padding-top:66.66666666666666%;">
+                      <img class="lazyload no-js"
+                        data-src="//cdn.shopify.com/s/files/1/0267/8790/5624/products/BizzieBird_{width}x.jpg?v=1603114113"
+                        data-widths="[125, 180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                        data-aspectratio="1.5" data-sizes="auto"
+                        alt="Bizzie Bird - Complete skincare regime in handy travel size, Gift or Sample Selection - Bird and Earth">
+                    </div>
+                  </div>
+                  <noscript>
+                    <img src="//cdn.shopify.com/s/files/1/0267/8790/5624/products/BizzieBird_580x.jpg?v=1603114113"
+                      srcset="//cdn.shopify.com/s/files/1/0267/8790/5624/products/BizzieBird_580x.jpg?v=1603114113 1x, //cdn.shopify.com/s/files/1/0267/8790/5624/products/BizzieBird_580x@2x.jpg?v=1603114113 2x"
+                      alt="Bizzie Bird - Complete skincare regime in handy travel size, Gift or Sample Selection - Bird and Earth"
+                      style="opacity:1;">
+                  </noscript>
+
+
+                </div>
+              </div>
+
+              <p>Bizzie Bird - Complete skincare regime in handy travel size, Gift or Sample Selection</p>
+
+              <div class="product-item--price">
+                <span class="h1 medium--left">
+
+                  <span class="visually-hidden">Regular price</span>
+
+
+
+
+
+
+
+                  <small aria-hidden="true">$42<sup>00</sup></small>
+                  <span class="visually-hidden">$42.00</span>
+
+
+                </span></div>
+
+
+
+            </a>
+
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          <div class="grid-item medium--one-half large--one-half">
+
+            <a href="/collections/womens-natural-skin-care/products/nest-a-beautiful-introduction-to-the-daily-use-of-natural-skin-care-with-essential-oils"
+              class="product-grid-item">
+              <div class="product-grid-image">
+                <div class="product-grid-image--centered">
+
+
+
+                  <div class="lazyload__image-wrapper no-js" style="max-width: 540px">
+                    <div style="padding-top:66.66666666666666%;">
+                      <img class="lazyload no-js"
+                        data-src="//cdn.shopify.com/s/files/1/0267/8790/5624/products/NEST_{width}x.jpg?v=1603114093"
+                        data-widths="[125, 180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                        data-aspectratio="1.5" data-sizes="auto"
+                        alt="NEST - Women&#39;s Natural Skincare regime. 2 months of your favourites in a handy jute carry pouch - Bird and Earth">
+                    </div>
+                  </div>
+                  <noscript>
+                    <img src="//cdn.shopify.com/s/files/1/0267/8790/5624/products/NEST_580x.jpg?v=1603114093"
+                      srcset="//cdn.shopify.com/s/files/1/0267/8790/5624/products/NEST_580x.jpg?v=1603114093 1x, //cdn.shopify.com/s/files/1/0267/8790/5624/products/NEST_580x@2x.jpg?v=1603114093 2x"
+                      alt="NEST - Women's Natural Skincare regime. 2 months of your favourites in a handy jute carry pouch - Bird and Earth"
+                      style="opacity:1;">
+                  </noscript>
+
+
+                </div>
+              </div>
+
+              <p>NEST - Women's Natural Skincare regime. 2 months of your favourites in a handy jute carry pouch</p>
+
+              <div class="product-item--price">
+                <span class="h1 medium--left">
+
+                  <span class="visually-hidden">Regular price</span>
+
+
+
+
+
+
+
+                  <small aria-hidden="true">$57<sup>00</sup></small>
+                  <span class="visually-hidden">$57.00</span>
+
+
+                </span></div>
+
+
+
+            </a>
+
+          </div>
+
+
+        </div>
+
+
+      </div>
+
+
+
+    </div>
+    <div id="shopify-section-collection-row-2" class="shopify-section clearfix">
+      <hr>
+      <div id="collection-rows--collection-row-2" data-section-id="collection-row-2"
+        data-section-type="collection-row-section">
+
+
+
+
+
+
+
+        <div class="section-header">
+          <p class="h1 section-header--left">Men&#39;s Natural Skincare w&#39; Pure Essential Oils</p>
+
+          <div class="section-header--right">
+
+            <a href="/collections/mens-natural-skin-care">More men&#39;s natural skincare w&#39; pure essential oils -
+              bird and earth - port macquarie nsw &rsaquo;</a>
+          </div>
+
+        </div>
+
+
+        <div class="grid-uniform row-negative-bottom">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          <div class="grid-item medium--one-half large--one-half">
+
+            <a href="/collections/mens-natural-skin-care/products/mens-trio-selection" class="product-grid-item">
+              <div class="product-grid-image">
+                <div class="product-grid-image--centered">
+
+
+
+                  <div class="lazyload__image-wrapper no-js" style="max-width: 540px">
+                    <div style="padding-top:66.66666666666666%;">
+                      <img class="lazyload no-js"
+                        data-src="//cdn.shopify.com/s/files/1/0267/8790/5624/products/MensTrioSelection_{width}x.jpg?v=1603114103"
+                        data-widths="[125, 180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                        data-aspectratio="1.5" data-sizes="auto" alt="Men&#39;s TRIO Selection - Bird and Earth">
+                    </div>
+                  </div>
+                  <noscript>
+                    <img
+                      src="//cdn.shopify.com/s/files/1/0267/8790/5624/products/MensTrioSelection_580x.jpg?v=1603114103"
+                      srcset="//cdn.shopify.com/s/files/1/0267/8790/5624/products/MensTrioSelection_580x.jpg?v=1603114103 1x, //cdn.shopify.com/s/files/1/0267/8790/5624/products/MensTrioSelection_580x@2x.jpg?v=1603114103 2x"
+                      alt="Men's TRIO Selection - Bird and Earth" style="opacity:1;">
+                  </noscript>
+
+
+                </div>
+              </div>
+
+              <p>Men's TRIO Selection</p>
+
+              <div class="product-item--price">
+                <span class="h1 medium--left">
+
+                  <span class="visually-hidden">Regular price</span>
+
+
+
+
+
+
+
+                  <small aria-hidden="true">$118<sup>00</sup></small>
+                  <span class="visually-hidden">$118.00</span>
+
+
+                </span></div>
+
+
+
+            </a>
+
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          <div class="grid-item medium--one-half large--one-half">
+
+            <a href="/collections/mens-natural-skin-care/products/mens-natural-essentials-nest-for-men"
+              class="product-grid-item">
+              <div class="product-grid-image">
+                <div class="product-grid-image--centered">
+
+
+
+                  <div class="lazyload__image-wrapper no-js" style="max-width: 540px">
+                    <div style="padding-top:66.66666666666666%;">
+                      <img class="lazyload no-js"
+                        data-src="//cdn.shopify.com/s/files/1/0267/8790/5624/products/MensNestRugspic_{width}x.jpg?v=1603114100"
+                        data-widths="[125, 180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                        data-aspectratio="1.5" data-sizes="auto" alt="Men&#39;s NEST - Bird and Earth">
+                    </div>
+                  </div>
+                  <noscript>
+                    <img src="//cdn.shopify.com/s/files/1/0267/8790/5624/products/MensNestRugspic_580x.jpg?v=1603114100"
+                      srcset="//cdn.shopify.com/s/files/1/0267/8790/5624/products/MensNestRugspic_580x.jpg?v=1603114100 1x, //cdn.shopify.com/s/files/1/0267/8790/5624/products/MensNestRugspic_580x@2x.jpg?v=1603114100 2x"
+                      alt="Men's NEST - Bird and Earth" style="opacity:1;">
+                  </noscript>
+
+
+                </div>
+              </div>
+
+              <p>Men's NEST</p>
+
+              <div class="product-item--price">
+                <span class="h1 medium--left">
+
+                  <span class="visually-hidden">Regular price</span>
+
+
+
+
+
+
+
+                  <small aria-hidden="true">$55<sup>00</sup></small>
+                  <span class="visually-hidden">$55.00</span>
+
+
+                </span></div>
+
+
+
+            </a>
+
+          </div>
+
+
+        </div>
+
+
+      </div>
+
+
+
+    </div>
+    <div id="shopify-section-collection-row-3" class="shopify-section clearfix">
+      <hr>
+      <div id="collection-rows--collection-row-3" data-section-id="collection-row-3"
+        data-section-type="collection-row-section">
+
+
+
+
+
+
+
+        <div class="section-header">
+          <p class="h1 section-header--left">Body and Hair Care products w&#39; Pure Essential Oils</p>
+
+          <div class="section-header--right">
+
+            <a href="/collections/body-hair-care">More body &amp; hair care - bird and earth - port macquarie nsw
+              australia &rsaquo;</a>
+          </div>
+
+        </div>
+
+
+        <div class="grid-uniform row-negative-bottom">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          <div class="grid-item medium--one-half large--one-half">
+
+            <a href="/collections/body-hair-care/products/hand-body-oil-180ml" class="product-grid-item">
+              <div class="product-grid-image">
+                <div class="product-grid-image--centered">
+
+
+
+                  <div class="lazyload__image-wrapper no-js" style="max-width: 540px">
+                    <div style="padding-top:66.66666666666666%;">
+                      <img class="lazyload no-js"
+                        data-src="//cdn.shopify.com/s/files/1/0267/8790/5624/products/BodyOil_{width}x.jpg?v=1603114095"
+                        data-widths="[125, 180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                        data-aspectratio="1.5" data-sizes="auto" alt="Hand &amp; Body Oil 180ml - Bird and Earth">
+                    </div>
+                  </div>
+                  <noscript>
+                    <img src="//cdn.shopify.com/s/files/1/0267/8790/5624/products/BodyOil_580x.jpg?v=1603114095"
+                      srcset="//cdn.shopify.com/s/files/1/0267/8790/5624/products/BodyOil_580x.jpg?v=1603114095 1x, //cdn.shopify.com/s/files/1/0267/8790/5624/products/BodyOil_580x@2x.jpg?v=1603114095 2x"
+                      alt="Hand & Body Oil 180ml - Bird and Earth" style="opacity:1;">
+                  </noscript>
+
+
+                </div>
+              </div>
+
+              <p>Hand & Body Oil 180ml</p>
+
+              <div class="product-item--price">
+                <span class="h1 medium--left">
+
+                  <span class="visually-hidden">Regular price</span>
+
+
+
+
+
+
+
+                  <small aria-hidden="true">$55<sup>00</sup></small>
+                  <span class="visually-hidden">$55.00</span>
+
+
+                </span></div>
+
+
+
+            </a>
+
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          <div class="grid-item medium--one-half large--one-half">
+
+            <a href="/collections/body-hair-care/products/palm-oil-free-body-wash-250ml-doubles-as-shampoo-suitable-for-dreadlocks"
+              class="product-grid-item">
+              <div class="product-grid-image">
+                <div class="product-grid-image--centered">
+
+
+
+                  <div class="lazyload__image-wrapper no-js" style="max-width: 540px">
+                    <div style="padding-top:66.66666666666666%;">
+                      <img class="lazyload no-js"
+                        data-src="//cdn.shopify.com/s/files/1/0267/8790/5624/products/BodyWashduo_{width}x.jpg?v=1603114107"
+                        data-widths="[125, 180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                        data-aspectratio="1.5" data-sizes="auto" alt="Body Wash 250ml Palm Oil Free - Bird and Earth">
+                    </div>
+                  </div>
+                  <noscript>
+                    <img src="//cdn.shopify.com/s/files/1/0267/8790/5624/products/BodyWashduo_580x.jpg?v=1603114107"
+                      srcset="//cdn.shopify.com/s/files/1/0267/8790/5624/products/BodyWashduo_580x.jpg?v=1603114107 1x, //cdn.shopify.com/s/files/1/0267/8790/5624/products/BodyWashduo_580x@2x.jpg?v=1603114107 2x"
+                      alt="Body Wash 250ml Palm Oil Free - Bird and Earth" style="opacity:1;">
+                  </noscript>
+
+
+                </div>
+              </div>
+
+              <p>Body Wash 250ml Palm Oil Free</p>
+
+              <div class="product-item--price">
+                <span class="h1 medium--left">
+
+                  <span class="visually-hidden">Regular price</span>
+
+
+
+
+
+
+
+                  <small aria-hidden="true">$22<sup>00</sup></small>
+                  <span class="visually-hidden">$22.00</span>
+
+
+                </span></div>
+
+
+
+            </a>
+
+          </div>
+
+
+        </div>
+
+
+      </div>
+
+
+
+    </div>
+    <div id="shopify-section-1588571396505" class="shopify-section">
+      <hr>
+      <div class="custom-content">
+
+
+        <div class="custom__item one-whole align--top-middle">
+          <div class="custom__item-inner custom__item-inner--html">
+
+
+            <div class="rte" data-section-id="1588571396505" data-section-type="featured-content-section">
+              <div style="text-align:center;">
+                <h2>Some of our Customer Reviews</h2>
+
+                <p>Here are a few brief details of some of the top customer reviews that we have recieved:</p>
+
+                <p><a href="https://www.birdandearth.com.au/pages/reviews" title="Bird and Earth Facebook reviews"
+                    rel="nofollow noopener"><img class="lazyload"
+                      data-src="https://cdn.shopify.com/s/files/1/0267/8790/5624/files/bird-and-earth-facebook-reviews.png?v=1588570894"
+                      alt="Bird and Earth Facebook reviews" title="Bird and Earth Facebook reviews"></a></p>
+
+                <p><a href="https://www.birdandearth.com.au/pages/reviews" title="Bird and Earth Google reviews"
+                    rel="nofollow noopener"><img class="lazyload"
+                      data-src="https://cdn.shopify.com/s/files/1/0267/8790/5624/files/bird-and-earth-google-reviews2.png?v=1588688664"
+                      alt="Bird and Earth Google reviews" title="Bird and Earth Google reviews"></a></p>
+                <p>More details are available by clicking on the images above.</p>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+
+
+
+    </div>
+    <div id="shopify-section-1573678072957" class="shopify-section newsletter-section">
+      <hr>
+      <div class="text-centre">
+        <div class="section-header text-center">
+
+          <label for="Email" class="h1">Subscribe to our newsletter</label>
+
+
+          <p>Promotions, new products and sales. Directly to your inbox.</p>
+
+        </div>
+        <div class="form-vertical">
+          <form method="post" action="/contact#contact_form" id="contact_form" accept-charset="UTF-8"
+            class="contact-form"><input type="hidden" name="form_type" value="customer" /><input type="hidden"
+              name="utf8" value="✓" />
+
+
+            <input type="hidden" name="contact[tags]" value="newsletter">
+            <div class="input-group">
+              <label for="Email" class="visually-hidden">Email</label>
+              <input type="email" value="" placeholder="Email Address" name="contact[email]" id="Email"
+                class="input-group-field" aria-label="Email Address" autocorrect="off" autocapitalize="off">
+              <span class="input-group-btn">
+                <button type="submit" class="btn btn--small" name="commit" id="subscribe">Sign Up</button>
+              </span>
+            </div>
+
+          </form>
+        </div>
+
+      </div>
+
+
+
+
+
+    </div><!-- END content_for_index -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "HealthAndBeautyBusiness",
+        "name": "Bird and Earth",
+        "image": "https://cdn.shopify.com/s/files/1/0267/8790/5624/files/heading_360x_6673c3ca-bea5-4fc2-ace9-3f3779c2efe2_540x.png?v=1588257503",
+        "@id": "https://www.birdandearth.com.au/",
+        "url": "https://www.birdandearth.com.au/",
+        "telephone": "0422503092",
+        "priceRange": "$$$",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "15 Reading Street",
+          "addressLocality": "Port Macquarie",
+          "addressRegion": "NSW",
+          "postalCode": "2444",
+          "addressCountry": "AU"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": -31.4641907,
+          "longitude": 152.9260852
+        },
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+          ],
+          "opens": "09:00",
+          "closes": "17:00"
+        },
+        "sameAs": [
+          "https://www.facebook.com/birdandearth.com.au/",
+          "https://twitter.com/BirdandEarth1",
+          "https://instagram.com/birdandearth",
+          "https://www.pinterest.com.au/birdandearth/",
+          "https://www.youtube.com/channel/UCNIinDd4LBGLlGqEVexjh4g/about"
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "url": "https://www.birdandearth.com.au/",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://www.birdandearth.com.au/search?type=product&q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    </script>
+
+  </main>
+
+  <div id="shopify-section-footer" class="shopify-section footer-section">
+
+    <footer class="site-footer small--text-center" role="contentinfo">
+      <div class="wrapper">
+
+        <div class="grid">
+
+
+
+
+
+
+          <div class="grid-item small--one-whole one-third">
+
+            <h3>Quick link</h3>
+
+
+
+            <ul>
+
+              <li><a href="https://www.birdandearth.com.au/">Home</a></li>
+
+              <li><a href="https://www.birdandearth.com.au/pages/welcome">Welcome</a></li>
+
+              <li><a href="/pages/reviews">Reviews</a></li>
+
+              <li><a href="/collections/womens-natural-skin-care">for Women</a></li>
+
+              <li><a href="/collections/mens-natural-skin-care">for Men</a></li>
+
+              <li><a href="/pages/get-in-touch">Contact us</a></li>
+
+              <li><a href="/pages/product-information">Product info</a></li>
+
+              <li><a href="/pages/sitemap">Sitemap</a></li>
+
+              <li><a href="/pages/terms-and-conditions">Terms & conditions</a></li>
+
+              <li><a href="https://www.birdandearth.com.au/pages/wholesale-enquiries">Wholesale</a></li>
+
+            </ul>
+
+
+          </div>
+
+
+
+
+
+          <div class="grid-item small--one-whole one-third">
+
+            <h3>Get in touch</h3>
+
+
+
+
+
+            <p>It&#x27;s always lovely to hear from you. Feel comfortable to <a
+                href="https://www.birdandearth.com.au/pages/get-in-touch"
+                title="https://www.birdandearth.com.au/pages/get-in-touch"><strong>contact
+                  us</strong></a><strong> </strong>with any questions you may have about our products or business
+              values.</p>
+
+
+
+
+          </div>
+
+
+
+
+
+          <div class="grid-item small--one-whole one-third">
+
+            <h3>Newsletter</h3>
+
+
+
+            <div class="site-footer__newsletter-subtext">
+
+              <p>We would appreciate your email address to enable us to keep in touch &amp; keep you up to date with any
+                information or offers from Bird and Earth</p>
+
+            </div>
+            <div class="form-vertical">
+              <form method="post" action="/contact#contact_form" id="contact_form" accept-charset="UTF-8"
+                class="contact-form"><input type="hidden" name="form_type" value="customer" /><input type="hidden"
+                  name="utf8" value="✓" />
+
+
+                <input type="hidden" name="contact[tags]" value="newsletter">
+                <div class="input-group">
+                  <label for="Email" class="visually-hidden">Email</label>
+                  <input type="email" value="" placeholder="Email Address" name="contact[email]" id="Email"
+                    class="input-group-field" aria-label="Email Address" autocorrect="off" autocapitalize="off">
+                  <span class="input-group-btn">
+                    <button type="submit" class="btn-secondary btn--small" name="commit" id="subscribe">Sign Up</button>
+                  </span>
+                </div>
+
+              </form>
+            </div>
+
+
+          </div>
+
+
+
+
+
+          <div class="grid-item small--one-whole one-third">
+
+            <h3>Bird and Earth Blog (by Romi Scriven)</h3>
+
+
+
+            <ul>
+
+              <li><a href="/blogs/news/welcome-to-bird-and-earths-reason-for-being">B & E Reason for being</a></li>
+
+              <li><a href="/blogs/news/take-the-time-to-listen-to-your-body">Take the time to listen to your body</a>
+              </li>
+
+            </ul>
+
+
+          </div>
+
+
+        </div>
+
+
+
+        <hr class="hr--small">
+
+
+        <div class="grid">
+
+
+          <div class="grid-item one-whole text-center">
+            <ul class="inline-list social-icons">
+
+              <li>
+                <a class="icon-fallback-text" href="https://twitter.com/BirdandEarth1" title="Bird and Earth on Twitter"
+                  rel="nofollow noopener">
+                  <span class="icon icon-twitter" aria-hidden="true"></span>
+                  <span class="fallback-text">Twitter</span>
+                </a>
+              </li>
+
+
+              <li>
+                <a class="icon-fallback-text" href="https://www.facebook.com/birdandearth.com.au/"
+                  title="Bird and Earth on Facebook" rel="nofollow noopener">
+                  <span class="icon icon-facebook" aria-hidden="true"></span>
+                  <span class="fallback-text">Facebook</span>
+                </a>
+              </li>
+
+
+              <li>
+                <a class="icon-fallback-text" href="https://www.pinterest.com.au/birdandearth/"
+                  title="Bird and Earth on Pinterest" rel="nofollow noopener">
+                  <span class="icon icon-pinterest" aria-hidden="true"></span>
+                  <span class="fallback-text">Pinterest</span>
+                </a>
+              </li>
+
+
+
+              <li>
+                <a class="icon-fallback-text" href="https://instagram.com/birdandearth"
+                  title="Bird and Earth on Instagram" rel="nofollow noopener">
+                  <span class="icon icon-instagram" aria-hidden="true"></span>
+                  <span class="fallback-text">Instagram</span>
+                </a>
+              </li>
+
+
+
+
+              <li>
+                <a class="icon-fallback-text" href="https://www.youtube.com/channel/UCNIinDd4LBGLlGqEVexjh4g/featured"
+                  title="Bird and Earth on YouTube" rel="nofollow noopener">
+                  <span class="icon icon-youtube" aria-hidden="true"></span>
+                  <span class="fallback-text">YouTube</span>
+                </a>
+              </li>
+
+
+
+            </ul>
+          </div>
+
+        </div>
+        <hr class="hr--small">
+        <div class="grid">
+          <div class="grid-item large--two-fifths">
+            <ul class="legal-links inline-list">
+              <li>
+                &copy; 2020 <a href="/" title="">Bird and Earth</a>
+              </li>
+              <li>
+                <a target="_blank" rel="nofollow noopener"
+                  href="https://www.shopify.com?utm_campaign=poweredby&amp;utm_medium=shopify&amp;utm_source=onlinestore">Powered
+                  by Shopify</a>
+              </li>
+            </ul>
+          </div>
+          <div class="grid-item large--three-fifths large--text-right">
+            <span class="visually-hidden">Payment icons</span>
+            <ul class="inline-list payment-icons">
+              <li>
+                <svg class="icon" xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 38 24" width="38"
+                  height="24" aria-labelledby="pi-american_express">
+                  <title id="pi-american_express">American Express</title>
+                  <g fill="none">
+                    <path fill="#000"
+                      d="M35,0 L3,0 C1.3,0 0,1.3 0,3 L0,21 C0,22.7 1.4,24 3,24 L35,24 C36.7,24 38,22.7 38,21 L38,3 C38,1.3 36.6,0 35,0 Z"
+                      opacity=".07" />
+                    <path fill="#006FCF"
+                      d="M35,1 C36.1,1 37,1.9 37,3 L37,21 C37,22.1 36.1,23 35,23 L3,23 C1.9,23 1,22.1 1,21 L1,3 C1,1.9 1.9,1 3,1 L35,1" />
+                    <path fill="#FFF"
+                      d="M8.971,10.268 L9.745,12.144 L8.203,12.144 L8.971,10.268 Z M25.046,10.346 L22.069,10.346 L22.069,11.173 L24.998,11.173 L24.998,12.412 L22.075,12.412 L22.075,13.334 L25.052,13.334 L25.052,14.073 L27.129,11.828 L25.052,9.488 L25.046,10.346 L25.046,10.346 Z M10.983,8.006 L14.978,8.006 L15.865,9.941 L16.687,8 L27.057,8 L28.135,9.19 L29.25,8 L34.013,8 L30.494,11.852 L33.977,15.68 L29.143,15.68 L28.065,14.49 L26.94,15.68 L10.03,15.68 L9.536,14.49 L8.406,14.49 L7.911,15.68 L4,15.68 L7.286,8 L10.716,8 L10.983,8.006 Z M19.646,9.084 L17.407,9.084 L15.907,12.62 L14.282,9.084 L12.06,9.084 L12.06,13.894 L10,9.084 L8.007,9.084 L5.625,14.596 L7.18,14.596 L7.674,13.406 L10.27,13.406 L10.764,14.596 L13.484,14.596 L13.484,10.661 L15.235,14.602 L16.425,14.602 L18.165,10.673 L18.165,14.603 L19.623,14.603 L19.647,9.083 L19.646,9.084 Z M28.986,11.852 L31.517,9.084 L29.695,9.084 L28.094,10.81 L26.546,9.084 L20.652,9.084 L20.652,14.602 L26.462,14.602 L28.076,12.864 L29.624,14.602 L31.499,14.602 L28.987,11.852 L28.986,11.852 Z" />
+                  </g>
+                </svg>
+
+              </li>
+              <li>
+                <svg class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" role="img" x="0" y="0" width="38"
+                  height="24" viewBox="0 0 165.521 105.965" xml:space="preserve" aria-labelledby="pi-apple_pay">
+                  <title id="pi-apple_pay">Apple Pay</title>
+                  <path fill="#000"
+                    d="M150.698 0H14.823c-.566 0-1.133 0-1.698.003-.477.004-.953.009-1.43.022-1.039.028-2.087.09-3.113.274a10.51 10.51 0 0 0-2.958.975 9.932 9.932 0 0 0-4.35 4.35 10.463 10.463 0 0 0-.975 2.96C.113 9.611.052 10.658.024 11.696a70.22 70.22 0 0 0-.022 1.43C0 13.69 0 14.256 0 14.823v76.318c0 .567 0 1.132.002 1.699.003.476.009.953.022 1.43.028 1.036.09 2.084.275 3.11a10.46 10.46 0 0 0 .974 2.96 9.897 9.897 0 0 0 1.83 2.52 9.874 9.874 0 0 0 2.52 1.83c.947.483 1.917.79 2.96.977 1.025.183 2.073.245 3.112.273.477.011.953.017 1.43.02.565.004 1.132.004 1.698.004h135.875c.565 0 1.132 0 1.697-.004.476-.002.952-.009 1.431-.02 1.037-.028 2.085-.09 3.113-.273a10.478 10.478 0 0 0 2.958-.977 9.955 9.955 0 0 0 4.35-4.35c.483-.947.789-1.917.974-2.96.186-1.026.246-2.074.274-3.11.013-.477.02-.954.022-1.43.004-.567.004-1.132.004-1.699V14.824c0-.567 0-1.133-.004-1.699a63.067 63.067 0 0 0-.022-1.429c-.028-1.038-.088-2.085-.274-3.112a10.4 10.4 0 0 0-.974-2.96 9.94 9.94 0 0 0-4.35-4.35A10.52 10.52 0 0 0 156.939.3c-1.028-.185-2.076-.246-3.113-.274a71.417 71.417 0 0 0-1.431-.022C151.83 0 151.263 0 150.698 0z" />
+                  <path fill="#FFF"
+                    d="M150.698 3.532l1.672.003c.452.003.905.008 1.36.02.793.022 1.719.065 2.583.22.75.135 1.38.34 1.984.648a6.392 6.392 0 0 1 2.804 2.807c.306.6.51 1.226.645 1.983.154.854.197 1.783.218 2.58.013.45.019.9.02 1.36.005.557.005 1.113.005 1.671v76.318c0 .558 0 1.114-.004 1.682-.002.45-.008.9-.02 1.35-.022.796-.065 1.725-.221 2.589a6.855 6.855 0 0 1-.645 1.975 6.397 6.397 0 0 1-2.808 2.807c-.6.306-1.228.511-1.971.645-.881.157-1.847.2-2.574.22-.457.01-.912.017-1.379.019-.555.004-1.113.004-1.669.004H14.801c-.55 0-1.1 0-1.66-.004a74.993 74.993 0 0 1-1.35-.018c-.744-.02-1.71-.064-2.584-.22a6.938 6.938 0 0 1-1.986-.65 6.337 6.337 0 0 1-1.622-1.18 6.355 6.355 0 0 1-1.178-1.623 6.935 6.935 0 0 1-.646-1.985c-.156-.863-.2-1.788-.22-2.578a66.088 66.088 0 0 1-.02-1.355l-.003-1.327V14.474l.002-1.325a66.7 66.7 0 0 1 .02-1.357c.022-.792.065-1.717.222-2.587a6.924 6.924 0 0 1 .646-1.981c.304-.598.7-1.144 1.18-1.623a6.386 6.386 0 0 1 1.624-1.18 6.96 6.96 0 0 1 1.98-.646c.865-.155 1.792-.198 2.586-.22.452-.012.905-.017 1.354-.02l1.677-.003h135.875" />
+                  <g>
+                    <g>
+                      <path fill="#000"
+                        d="M43.508 35.77c1.404-1.755 2.356-4.112 2.105-6.52-2.054.102-4.56 1.355-6.012 3.112-1.303 1.504-2.456 3.959-2.156 6.266 2.306.2 4.61-1.152 6.063-2.858" />
+                      <path fill="#000"
+                        d="M45.587 39.079c-3.35-.2-6.196 1.9-7.795 1.9-1.6 0-4.049-1.8-6.698-1.751-3.447.05-6.645 2-8.395 5.1-3.598 6.2-.95 15.4 2.55 20.45 1.699 2.5 3.747 5.25 6.445 5.151 2.55-.1 3.549-1.65 6.647-1.65 3.097 0 3.997 1.65 6.696 1.6 2.798-.05 4.548-2.5 6.247-5 1.95-2.85 2.747-5.6 2.797-5.75-.05-.05-5.396-2.101-5.446-8.251-.05-5.15 4.198-7.6 4.398-7.751-2.399-3.548-6.147-3.948-7.447-4.048" />
+                    </g>
+                    <g>
+                      <path fill="#000"
+                        d="M78.973 32.11c7.278 0 12.347 5.017 12.347 12.321 0 7.33-5.173 12.373-12.529 12.373h-8.058V69.62h-5.822V32.11h14.062zm-8.24 19.807h6.68c5.07 0 7.954-2.729 7.954-7.46 0-4.73-2.885-7.434-7.928-7.434h-6.706v14.894z" />
+                      <path fill="#000"
+                        d="M92.764 61.847c0-4.809 3.665-7.564 10.423-7.98l7.252-.442v-2.08c0-3.04-2.001-4.704-5.562-4.704-2.938 0-5.07 1.507-5.51 3.82h-5.252c.157-4.86 4.731-8.395 10.918-8.395 6.654 0 10.995 3.483 10.995 8.89v18.663h-5.38v-4.497h-.13c-1.534 2.937-4.914 4.782-8.579 4.782-5.406 0-9.175-3.222-9.175-8.057zm17.675-2.417v-2.106l-6.472.416c-3.64.234-5.536 1.585-5.536 3.95 0 2.288 1.975 3.77 5.068 3.77 3.95 0 6.94-2.522 6.94-6.03z" />
+                      <path fill="#000"
+                        d="M120.975 79.652v-4.496c.364.051 1.247.103 1.715.103 2.573 0 4.029-1.09 4.913-3.899l.52-1.663-9.852-27.293h6.082l6.863 22.146h.13l6.862-22.146h5.927l-10.216 28.67c-2.34 6.577-5.017 8.735-10.683 8.735-.442 0-1.872-.052-2.261-.157z" />
+                    </g>
+                  </g>
+                </svg>
+
+              </li>
+              <li>
+                <svg class="icon" xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 38 24" width="38"
+                  height="24" aria-labelledby="pi-google_pay">
+                  <title id="pi-google_pay">Google Pay</title>
+                  <path d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z" fill="#000"
+                    opacity=".07" />
+                  <path d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32" fill="#FFF" />
+                  <path
+                    d="M18.093 11.976v3.2h-1.018v-7.9h2.691a2.447 2.447 0 0 1 1.747.692 2.28 2.28 0 0 1 .11 3.224l-.11.116c-.47.447-1.098.69-1.747.674l-1.673-.006zm0-3.732v2.788h1.698c.377.012.741-.135 1.005-.404a1.391 1.391 0 0 0-1.005-2.354l-1.698-.03zm6.484 1.348c.65-.03 1.286.188 1.778.613.445.43.682 1.03.65 1.649v3.334h-.969v-.766h-.049a1.93 1.93 0 0 1-1.673.931 2.17 2.17 0 0 1-1.496-.533 1.667 1.667 0 0 1-.613-1.324 1.606 1.606 0 0 1 .613-1.336 2.746 2.746 0 0 1 1.698-.515c.517-.02 1.03.093 1.49.331v-.208a1.134 1.134 0 0 0-.417-.901 1.416 1.416 0 0 0-.98-.368 1.545 1.545 0 0 0-1.319.717l-.895-.564a2.488 2.488 0 0 1 2.182-1.06zM23.29 13.52a.79.79 0 0 0 .337.662c.223.176.5.269.785.263.429-.001.84-.17 1.146-.472.305-.286.478-.685.478-1.103a2.047 2.047 0 0 0-1.324-.374 1.716 1.716 0 0 0-1.03.294.883.883 0 0 0-.392.73zm9.286-3.75l-3.39 7.79h-1.048l1.281-2.728-2.224-5.062h1.103l1.612 3.885 1.569-3.885h1.097z"
+                    fill="#5F6368" />
+                  <path
+                    d="M13.986 11.284c0-.308-.024-.616-.073-.92h-4.29v1.747h2.451a2.096 2.096 0 0 1-.9 1.373v1.134h1.464a4.433 4.433 0 0 0 1.348-3.334z"
+                    fill="#4285F4" />
+                  <path
+                    d="M9.629 15.721a4.352 4.352 0 0 0 3.01-1.097l-1.466-1.14a2.752 2.752 0 0 1-4.094-1.44H5.577v1.17a4.53 4.53 0 0 0 4.052 2.507z"
+                    fill="#34A853" />
+                  <path d="M7.079 12.05a2.709 2.709 0 0 1 0-1.735v-1.17H5.577a4.505 4.505 0 0 0 0 4.075l1.502-1.17z"
+                    fill="#FBBC04" />
+                  <path
+                    d="M9.629 8.44a2.452 2.452 0 0 1 1.74.68l1.3-1.293a4.37 4.37 0 0 0-3.065-1.183 4.53 4.53 0 0 0-4.027 2.5l1.502 1.171a2.715 2.715 0 0 1 2.55-1.875z"
+                    fill="#EA4335" />
+                </svg>
+
+              </li>
+              <li>
+                <svg class="icon" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" role="img" width="38"
+                  height="24" aria-labelledby="pi-master">
+                  <title id="pi-master">Mastercard</title>
+                  <path opacity=".07"
+                    d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z" />
+                  <path fill="#fff" d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32" />
+                  <circle fill="#EB001B" cx="15" cy="12" r="7" />
+                  <circle fill="#F79E1B" cx="23" cy="12" r="7" />
+                  <path fill="#FF5F00"
+                    d="M22 12c0-2.4-1.2-4.5-3-5.7-1.8 1.3-3 3.4-3 5.7s1.2 4.5 3 5.7c1.8-1.2 3-3.3 3-5.7z" />
+                </svg>
+              </li>
+              <li>
+                <svg class="icon" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" width="38" height="24"
+                  role="img" aria-labelledby="pi-paypal">
+                  <title id="pi-paypal">PayPal</title>
+                  <path opacity=".07"
+                    d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z" />
+                  <path fill="#fff" d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32" />
+                  <path fill="#003087"
+                    d="M23.9 8.3c.2-1 0-1.7-.6-2.3-.6-.7-1.7-1-3.1-1h-4.1c-.3 0-.5.2-.6.5L14 15.6c0 .2.1.4.3.4H17l.4-3.4 1.8-2.2 4.7-2.1z" />
+                  <path fill="#3086C8"
+                    d="M23.9 8.3l-.2.2c-.5 2.8-2.2 3.8-4.6 3.8H18c-.3 0-.5.2-.6.5l-.6 3.9-.2 1c0 .2.1.4.3.4H19c.3 0 .5-.2.5-.4v-.1l.4-2.4v-.1c0-.2.3-.4.5-.4h.3c2.1 0 3.7-.8 4.1-3.2.2-1 .1-1.8-.4-2.4-.1-.5-.3-.7-.5-.8z" />
+                  <path fill="#012169"
+                    d="M23.3 8.1c-.1-.1-.2-.1-.3-.1-.1 0-.2 0-.3-.1-.3-.1-.7-.1-1.1-.1h-3c-.1 0-.2 0-.2.1-.2.1-.3.2-.3.4l-.7 4.4v.1c0-.3.3-.5.6-.5h1.3c2.5 0 4.1-1 4.6-3.8v-.2c-.1-.1-.3-.2-.5-.2h-.1z" />
+                </svg>
+              </li>
+              <li>
+                <svg class="icon" xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 38 24" width="38"
+                  height="24" aria-labelledby="pi-shopify_pay">
+                  <title id="pi-shopify_pay">Shop Pay</title>
+                  <path opacity=".07"
+                    d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z" fill="#000" />
+                  <path d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32z"
+                    fill="#5A31F4" />
+                  <path
+                    d="M21.382 9.713c0 1.668-1.177 2.858-2.821 2.858h-1.549a.133.133 0 00-.12.08.127.127 0 00-.01.049v2.192a.129.129 0 01-.13.129h-1.084a.13.13 0 01-.13-.13V6.986a.127.127 0 01.08-.12.129.129 0 01.05-.01h2.9c1.637 0 2.814 1.19 2.814 2.858v-.001zm-1.352 0c0-.958-.658-1.658-1.55-1.658h-1.468a.13.13 0 00-.13.13v3.05a.127.127 0 00.038.092.129.129 0 00.092.038h1.468c.892.005 1.55-.695 1.55-1.652zm1.674 3.791a1.527 1.527 0 01.647-1.317c.423-.316 1.084-.48 2.055-.514l1.033-.036v-.303c0-.607-.41-.863-1.068-.863-.658 0-1.075.231-1.17.61a.127.127 0 01-.125.09h-1.022a.13.13 0 01-.126-.092.125.125 0 01-.004-.055c.152-.898.904-1.58 2.494-1.58 1.692 0 2.303.783 2.303 2.276v3.172a.13.13 0 01-.132.129h-1.03a.13.13 0 01-.13-.13v-.236a.096.096 0 00-.061-.091.1.1 0 00-.107.022c-.31.334-.808.575-1.607.575-1.175 0-1.95-.607-1.95-1.657zm3.735-.687v-.246l-1.339.07c-.705.036-1.115.326-1.115.816 0 .444.376.69 1.034.69.893 0 1.42-.48 1.42-1.33zm2.316 4.6v-.919a.13.13 0 01.049-.1.132.132 0 01.108-.027c.158.029.318.044.479.044a1.229 1.229 0 001.245-.876l.067-.211a.133.133 0 000-.088l-2.145-5.471a.13.13 0 01.06-.165.13.13 0 01.062-.015h1.04a.132.132 0 01.123.085l1.456 3.859a.131.131 0 00.125.088.133.133 0 00.125-.088l1.265-3.848a.13.13 0 01.126-.09h1.076a.134.134 0 01.132.116.134.134 0 01-.008.063l-2.295 6.076c-.528 1.413-1.433 1.773-2.43 1.773a1.959 1.959 0 01-.561-.066.132.132 0 01-.1-.14h.001zM8.57 6.4a5.363 5.363 0 00-3.683 1.427.231.231 0 00-.029.31l.618.839a.236.236 0 00.362.028 3.823 3.823 0 012.738-1.11c2.12 0 3.227 1.584 3.227 3.15 0 1.7-1.163 2.898-2.835 2.921-1.292 0-2.266-.85-2.266-1.974a1.908 1.908 0 01.713-1.48.231.231 0 00.033-.324l-.65-.815a.236.236 0 00-.339-.034 3.43 3.43 0 00-.942 1.183 3.39 3.39 0 00-.337 1.47c0 1.935 1.655 3.452 3.775 3.464h.03c2.517-.032 4.337-1.884 4.337-4.415 0-2.247-1.667-4.64-4.752-4.64z"
+                    fill="#fff" />
+                </svg>
+              </li>
+              <li>
+                <svg class="icon" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" role="img" width="38"
+                  height="24" aria-labelledby="pi-visa">
+                  <title id="pi-visa">Visa</title>
+                  <path opacity=".07"
+                    d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z" />
+                  <path fill="#fff" d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32" />
+                  <path
+                    d="M28.3 10.1H28c-.4 1-.7 1.5-1 3h1.9c-.3-1.5-.3-2.2-.6-3zm2.9 5.9h-1.7c-.1 0-.1 0-.2-.1l-.2-.9-.1-.2h-2.4c-.1 0-.2 0-.2.2l-.3.9c0 .1-.1.1-.1.1h-2.1l.2-.5L27 8.7c0-.5.3-.7.8-.7h1.5c.1 0 .2 0 .2.2l1.4 6.5c.1.4.2.7.2 1.1.1.1.1.1.1.2zm-13.4-.3l.4-1.8c.1 0 .2.1.2.1.7.3 1.4.5 2.1.4.2 0 .5-.1.7-.2.5-.2.5-.7.1-1.1-.2-.2-.5-.3-.8-.5-.4-.2-.8-.4-1.1-.7-1.2-1-.8-2.4-.1-3.1.6-.4.9-.8 1.7-.8 1.2 0 2.5 0 3.1.2h.1c-.1.6-.2 1.1-.4 1.7-.5-.2-1-.4-1.5-.4-.3 0-.6 0-.9.1-.2 0-.3.1-.4.2-.2.2-.2.5 0 .7l.5.4c.4.2.8.4 1.1.6.5.3 1 .8 1.1 1.4.2.9-.1 1.7-.9 2.3-.5.4-.7.6-1.4.6-1.4 0-2.5.1-3.4-.2-.1.2-.1.2-.2.1zm-3.5.3c.1-.7.1-.7.2-1 .5-2.2 1-4.5 1.4-6.7.1-.2.1-.3.3-.3H18c-.2 1.2-.4 2.1-.7 3.2-.3 1.5-.6 3-1 4.5 0 .2-.1.2-.3.2M5 8.2c0-.1.2-.2.3-.2h3.4c.5 0 .9.3 1 .8l.9 4.4c0 .1 0 .1.1.2 0-.1.1-.1.1-.1l2.1-5.1c-.1-.1 0-.2.1-.2h2.1c0 .1 0 .1-.1.2l-3.1 7.3c-.1.2-.1.3-.2.4-.1.1-.3 0-.5 0H9.7c-.1 0-.2 0-.2-.2L7.9 9.5c-.2-.2-.5-.5-.9-.6-.6-.3-1.7-.5-1.9-.5L5 8.2z"
+                    fill="#142688" />
+                </svg>
+              </li>
+            </ul>
+          </div>
+          <div class="text-center"><a
+              href="https://www.shopify.com/pci-compliant/?utm_source=secure&amp;utm_medium=shop"
+              title="This online store is secured by Shopify" target="_blank" rel="nofollow noopener"><img
+                class="lazyload"
+                data-src="https://cdn.shopify.com/s/files/1/0267/8790/5624/files/shopify-secure-badge-dark.jpg?v=1588543038"
+                alt="Shopify secure badge" width="102" height="44" /></a></div>
+        </div>
+
+      </div>
+
+    </footer>
+
+
+
+
+  </div>
+
+  <script>
+    var moneyFormat = '${{amount}}';
+
+    var theme = {
+      strings: {
+        product: {
+          unavailable: "Unavailable",
+          will_be_in_stock_after: "Will be in stock after [date]",
+          only_left: "Only 1 left!",
+          unitPrice: "Unit price",
+          unitPriceSeparator: "per"
+        },
+        navigation: {
+          more_link: "More"
+        },
+        map: {
+          addressError: "Error looking up that address",
+          addressNoResults: "No results for that address",
+          addressQueryLimit: "You have exceeded the Google API usage limit. Consider upgrading to a \u003ca href=\"https:\/\/developers.google.com\/maps\/premium\/usage-limits\"\u003ePremium Plan\u003c\/a\u003e.",
+          authError: "There was a problem authenticating your Google Maps API Key."
+        }
+      },
+      settings: {
+        cartType: "drawer"
+      }
+    }
+  </script>
+
+
+
+
+  <script id="cartTemplate" type="text/template">
+
+    <form action="{{ routes.cart_url }}" method="post" class="cart-form" novalidate>
+      <div class="ajaxifyCart--products">
+        {{#items}}
+        <div class="ajaxifyCart--product">
+          <div class="ajaxifyCart--row" data-line="{{line}}">
+            <div class="grid">
+              <div class="grid-item large--two-thirds">
+                <div class="grid">
+                  <div class="grid-item one-quarter">
+                    <a href="{{url}}" class="ajaxCart--product-image"><img src="{{img}}" alt=""></a>
+                  </div>
+                  <div class="grid-item three-quarters">
+                    <a href="{{url}}" class="h4">{{name}}</a>
+                    <p>{{variation}}</p>
+                  </div>
+                </div>
+              </div>
+              <div class="grid-item large--one-third">
+                <div class="grid">
+                  <div class="grid-item one-third">
+                    <div class="ajaxifyCart--qty">
+                      <input type="text" name="updates[]" class="ajaxifyCart--num" value="{{itemQty}}" min="0" data-line="{{line}}" aria-label="quantity" pattern="[0-9]*">
+                      <span class="ajaxifyCart--qty-adjuster ajaxifyCart--add" data-line="{{line}}" data-qty="{{itemAdd}}">+</span>
+                      <span class="ajaxifyCart--qty-adjuster ajaxifyCart--minus" data-line="{{line}}" data-qty="{{itemMinus}}">-</span>
+                    </div>
+                  </div>
+                  <div class="grid-item one-third text-center">
+                    <p>{{price}}</p>
+                  </div>
+                  <div class="grid-item one-third text-right">
+                    <p>
+                      <small><a href="{{ routes.cart_change_url }}?line={{line}}&amp;quantity=0" class="ajaxifyCart--remove" data-line="{{line}}">Remove</a></small>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {{/items}}
+      </div>
+      <div class="ajaxifyCart--row text-right medium-down--text-center">
+        <span class="h3">Subtotal {{totalPrice}}</span>
+        <input type="submit" class="{{btnClass}}" name="checkout" value="Checkout">
+      </div>
+    </form>
+  
+  </script>
+  <script id="drawerTemplate" type="text/template">
+
+    <div id="ajaxifyDrawer" class="ajaxify-drawer">
+      <div id="ajaxifyCart" class="ajaxifyCart--content {{wrapperClass}}" data-cart-url="/cart" data-cart-change-url="/cart/change"></div>
+    </div>
+    <div class="ajaxifyDrawer-caret"><span></span></div>
+  
+  </script>
+  <script id="modalTemplate" type="text/template">
+
+    <div id="ajaxifyModal" class="ajaxify-modal">
+      <div id="ajaxifyCart" class="ajaxifyCart--content" data-cart-url="/cart" data-cart-change-url="/cart/change"></div>
+    </div>
+  
+  </script>
+  <script id="ajaxifyQty" type="text/template">
+
+    <div class="ajaxifyCart--qty">
+      <input type="text" class="ajaxifyCart--num" value="{{itemQty}}" data-id="{{key}}" min="0" data-line="{{line}}" aria-label="quantity" pattern="[0-9]*">
+      <span class="ajaxifyCart--qty-adjuster ajaxifyCart--add" data-id="{{key}}" data-line="{{line}}" data-qty="{{itemAdd}}">+</span>
+      <span class="ajaxifyCart--qty-adjuster ajaxifyCart--minus" data-id="{{key}}" data-line="{{line}}" data-qty="{{itemMinus}}">-</span>
+    </div>
+  
+  </script>
+  <script id="jsQty" type="text/template">
+
+    <div class="js-qty">
+      <input type="text" class="js--num" value="{{itemQty}}" min="1" data-id="{{key}}" aria-label="quantity" pattern="[0-9]*" name="{{inputName}}" id="{{inputId}}">
+      <span class="js--qty-adjuster js--add" data-id="{{key}}" data-qty="{{itemAdd}}">+</span>
+      <span class="js--qty-adjuster js--minus" data-id="{{key}}" data-qty="{{itemMinus}}">-</span>
+    </div>
+  
+  </script>
+
+
+
+
+  <ul hidden>
+    <li id="a11y-refresh-page-message">choosing a selection results in a full page refresh</li>
+  </ul>
+
+
+
+</body>
+
+</html>
+
+<!-- Begin Shopify-Afterpay JavaScript Snippet (v1.0.4) -->
+<script type="text/javascript">
+  // Editable fields:
+  var afterpay_min = 0.04; // As per your Afterpay contract.
+  var afterpay_max = 1000.00; // As per your Afterpay contract.
+  var afterpay_cbt_enabled =
+  false; // As per your Afterpay contract; change to true to display Cross-Border Trade artwork (for AU/NZ).
+  var afterpay_logo_theme = 'colour'; // Can be 'colour', 'black' or 'white'.
+
+  // Overrides:
+  // var afterpay_product_selector = '#product-price-selector';
+  // var afterpay_cart_integration_enabled = true;
+  // var afterpay_cart_static_selector = '#cart-subtotal-selector';
+
+  // Non-editable fields:
+  var afterpay_shop_currency = "AUD";
+  var afterpay_cart_currency = "AUD";
+  var afterpay_shop_money_format = "${{amount}}";
+  var afterpay_shop_permanent_domain = "bird-and-earth.myshopify.com";
+  var afterpay_theme_name = "Supply";
+  var afterpay_product = null;
+  var afterpay_current_variant = null;
+  var afterpay_cart_total_price = 0;
+  var afterpay_js_snippet_version = '1.0.4';
+</script>
+<script type="text/javascript" src="https://static.afterpay.com/shopify-afterpay-javascript.js"></script>
+    <script>
+function millisToMinutesAndSeconds(millis) {
+      var result = millis / 1000;
+      return result;
+    }
+    var loadTime = window.performance.timing.domContentLoadedEventEnd - window.performance.timing.navigationStart;
+    
+    window.onload = function () {
+      var loadTime = window.performance.timing.domContentLoadedEventEnd - window.performance.timing.navigationStart;
+      var totalNoOfResources = window.performance.getEntriesByType("resource").length;
+      console.error('Page start loading time ' + window.performance.timing.navigationStart);
+      console.error('Page end loading time ' + window.performance.timing.domContentLoadedEventEnd);
+      console.error('Page load time is ' + loadTime);
+      console.error("Page load time in minutes and second: " + millisToMinutesAndSeconds(loadTime));
+      var startT = new Date(window.performance.timing.navigationStart);
+      startT.setHours(startT.getHours() + 2);
+      var endT = new Date(window.performance.timing.domContentLoadedEventEnd);
+      endT.setHours(endT.getHours() + 2);
+      console.error("Resources loaded "+(window.performance.getEntriesByType("resource").length));
+
+//       const Http = new XMLHttpRequest();
+//       Http.open("POST", 'https://192.168.0.115:8001', true);
+//       Http.send('edgyedgyapp::' + (window.performance.timing.navigationStart) + '::' + (window.performance.timing.domContentLoadedEventEnd) + (window.performance.getEntriesByType("resource").length));
+    }
+</script>
+<!-- End Shopify-Afterpay JavaScript Snippet (v1.0.4) -->

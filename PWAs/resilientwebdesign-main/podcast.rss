@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
+    <channel>
+        <title>Resilient Web Design</title>
+        <description>A web book by Jeremy Keith.</description>
+        <copyright>Licensed under a Creative Commons Attribution‐ShareAlike 4.0 International License.</copyright>
+        <image>
+            <title>Resilient Web Design</title>
+            <link>https://resilientwebdesign.com</link>
+            <url>https://resilientwebdesign.s3.amazonaws.com/podcast/artwork.png</url>
+        </image>
+        <language>en</language>
+        <link>https://resilientwebdesign.com</link>
+        <atom:link href="https://resilientwebdesign.com/podcast.rss" rel="self" type="application/rss+xml" />
+        <itunes:author>Jeremy Keith</itunes:author>
+        <itunes:subtitle>A web book by Jeremy Keith.</itunes:subtitle>
+        <itunes:summary>The podcast of the web book by Jeremy Keith.</itunes:summary>
+        <itunes:owner>
+            <itunes:name>Jeremy Keith</itunes:name>
+            <itunes:email>jeremy@adactio.com</itunes:email>
+        </itunes:owner>
+        <itunes:category text="Technology" />
+        <itunes:category text="Arts">
+            <itunes:category text="Design" />
+        </itunes:category>
+        <itunes:explicit>no</itunes:explicit>
+        <itunes:image href="https://resilientwebdesign.s3.amazonaws.com/podcast/artwork.png" />
+        <item>
+            <title>Chapter 7: Challenges</title>
+            <description>The fourth annual conference on hypertext took place in San Antonio, Texas in December 1991. Tim Berners‐Lee’s World Wide Web project was starting to take shape then. Thinking the conference organisers and attendees would appreciate the project, he submitted a proposal to Hypertext ’91. The proposal was rejected.</description>
+            <guid>https://resilientwebdesign.com/chapter7/</guid>
+            <link>https://resilientwebdesign.com/chapter7/</link>
+            <enclosure url="https://resilientwebdesign.s3.amazonaws.com/podcast/Chapter7.mp3" type="audio/mpeg" length="7110679" />
+            <pubDate>Mon, 6 Feb 2017 17:00:00 GMT</pubDate>
+            <itunes:author>Jeremy Keith</itunes:author>
+            <itunes:explicit>no</itunes:explicit>
+            <itunes:image href="https://resilientwebdesign.com/chapter7/images/medium/grace-hopper.jpg" />
+            <itunes:duration>14:35</itunes:duration>
+        </item>
+        <item>
+            <title>Chapter 6: Steps</title>
+            <description>“Always design a thing by considering it in its next larger context”, said the Finnish architect Eliel Saarinen. “A chair in a room, a room in a house, a house in an environment, an environment in a city plan.”</description>
+            <guid>https://resilientwebdesign.com/chapter6/</guid>
+            <link>https://resilientwebdesign.com/chapter6/</link>
+            <enclosure url="https://resilientwebdesign.s3.amazonaws.com/podcast/Chapter6.mp3" type="audio/mpeg" length="8371072" />
+            <pubDate>Sun, 29 Jan 2017 17:00:00 GMT</pubDate>
+            <itunes:author>Jeremy Keith</itunes:author>
+            <itunes:explicit>no</itunes:explicit>
+            <itunes:image href="https://resilientwebdesign.com/chapter6/images/medium/duck.jpg" />
+            <itunes:duration>17:13</itunes:duration>
+        </item>
+        <item>
+            <title>Chapter 5: Layers</title>
+            <description>In his classic book  How Buildings Learn Stewart Brand highlights an idea by the British architect Frank Duffy: “A building properly conceived is several layers of longevity.”</description>
+            <guid>https://resilientwebdesign.com/chapter5/</guid>
+            <link>https://resilientwebdesign.com/chapter5/</link>
+            <enclosure url="https://resilientwebdesign.s3.amazonaws.com/podcast/Chapter5.mp3" type="audio/mpeg" length="6029017" />
+            <pubDate>Sun, 22 Jan 2017 17:30:00 GMT</pubDate>
+            <itunes:author>Jeremy Keith</itunes:author>
+            <itunes:explicit>no</itunes:explicit>
+            <itunes:image href="https://resilientwebdesign.com/chapter5/images/medium/shearing-layers.jpg" />
+            <itunes:duration>12:20</itunes:duration>
+        </item>
+        <item>
+            <title>Chapter 4: Languages</title>
+            <description>Jon Postel was one of the engineers working on the ARPANET, the precursor to the internet. He wanted to make sure that the packets—or “datagrams”—being shuttled around the network were delivered in the most efficient way. He came to realise that a lax approach to errors was crucial to effective packet switching.</description>
+            <guid>https://resilientwebdesign.com/chapter4/</guid>
+            <link>https://resilientwebdesign.com/chapter4/</link>
+            <enclosure url="https://resilientwebdesign.s3.amazonaws.com/podcast/Chapter4.mp3" type="audio/mpeg" length="9369699" />
+            <pubDate>Sun, 15 Jan 2017 16:00:00 GMT</pubDate>
+            <itunes:author>Jeremy Keith</itunes:author>
+            <itunes:explicit>no</itunes:explicit>
+            <itunes:image href="https://resilientwebdesign.com/chapter3/images/medium/jon-postel.jpg" />
+            <itunes:duration>19:18</itunes:duration>
+        </item>
+        <item>
+            <title>Chapter 3: Visions</title>
+            <description>Design adds clarity. Using colour, typography, hierarchy, contrast, and all the other tools at their disposal, designers can take an unordered jumble of information and turn it into something that’s easy to use and pleasurable to behold. Like life itself, design can win a small victory against the entropy of the universe, creating pockets of order from the raw materials of chaos.</description>
+            <guid>https://resilientwebdesign.com/chapter3/</guid>
+            <link>https://resilientwebdesign.com/chapter3/</link>
+            <enclosure url="https://resilientwebdesign.s3.amazonaws.com/podcast/Chapter3.mp3" type="audio/mpeg" length="12436733" />
+            <pubDate>Sun, 8 Jan 2017 16:00:00 GMT</pubDate>
+            <itunes:author>Jeremy Keith</itunes:author>
+            <itunes:explicit>no</itunes:explicit>
+            <itunes:image href="https://resilientwebdesign.com/chapter3/images/medium/book-of-kells.jpg" />
+            <itunes:duration>25:41</itunes:duration>
+        </item>
+        <item>
+            <title>Chapter 2: Materials</title>
+            <description>At the risk of teaching grandmother to suck eggs, I’d like you to think about what happens when a browser parses an HTML element. Take, for example, a paragraph element with some text inside it. There’s an opening P tag, a closing P tag, and between those tags, there’s the text.</description>
+            <guid>https://resilientwebdesign.com/chapter2/</guid>
+            <link>https://resilientwebdesign.com/chapter2/</link>
+            <enclosure url="https://resilientwebdesign.s3.amazonaws.com/podcast/Chapter2.mp3" type="audio/mpeg" length="7230382" />
+            <pubDate>Mon, 26 Dec 2016 12:00:00 GMT</pubDate>
+            <itunes:author>Jeremy Keith</itunes:author>
+            <itunes:explicit>no</itunes:explicit>
+            <itunes:image href="https://resilientwebdesign.com/chapter2/images/medium/zengarden.png" />
+            <itunes:duration>14:50</itunes:duration>
+        </item>
+        <item>
+            <title>Chapter 1: Foundations</title>
+            <description>The history of human civilisation is a tale of cumulative effort. Each generation builds upon the work of their forebears. Sometimes the work takes a backward step. Sometimes we wander down dead ends. But we struggle on. Bit by bit our species makes progress. Whether the progress is incremental or a huge leap forward, it is always borne upon the accomplishments of those who came before us.</description>
+            <guid>https://resilientwebdesign.com/chapter1/</guid>
+            <link>https://resilientwebdesign.com/chapter1/</link>
+            <enclosure url="https://resilientwebdesign.s3.amazonaws.com/podcast/Chapter1.mp3" type="audio/mpeg" length="6933213" />
+            <pubDate>Fri, 16 Dec 2016 09:00:00 GMT</pubDate>
+            <itunes:author>Jeremy Keith</itunes:author>
+            <itunes:explicit>no</itunes:explicit>
+            <itunes:image href="https://resilientwebdesign.com/chapter1/images/medium/sir-tim-berners-lee.jpg" />
+            <itunes:duration>14:13</itunes:duration>
+        </item>
+        <item>
+            <title>Introduction</title>
+            <description>With a title like Resilient Web Design, you might think that this is a handbook for designing robust websites. This is not a handbook. It’s more like a history book.</description>
+            <guid>https://resilientwebdesign.com/introduction/</guid>
+            <link>https://resilientwebdesign.com/introduction/</link>
+            <enclosure url="https://resilientwebdesign.s3.amazonaws.com/podcast/introduction.mp3" type="audio/mpeg" length="1012612" />
+            <pubDate>Sun, 4 Dec 2016 12:00:00 GMT</pubDate>
+            <itunes:author>Jeremy Keith</itunes:author>
+            <itunes:explicit>no</itunes:explicit>
+            <itunes:image href="https://resilientwebdesign.com/author/images/medium/jeremykeith.jpg" />
+            <itunes:duration>01:53</itunes:duration>
+        </item>
+    </channel>
+</rss>

@@ -1,0 +1,39 @@
+{
+  "name": "Bird and Earth","short_name": "Bird & Earth","icons": [
+    {
+      "src": "https://cdn.superchargify.com/bird-and-earth.myshopify.com/icon-128x128.png?v=1584769763641",
+      "type": "image/png",
+      "sizes": "128x128"
+    },
+    {
+      "src": "https://cdn.superchargify.com/bird-and-earth.myshopify.com/icon-152x152.png?v=1584769763641",
+      "type": "image/png",
+      "sizes": "152x152"
+    },
+    {
+      "src": "https://cdn.superchargify.com/bird-and-earth.myshopify.com/icon-167x167.png?v=1584769763641",
+      "type": "image/png",
+      "sizes": "167x167"
+    },
+    {
+      "src": "https://cdn.superchargify.com/bird-and-earth.myshopify.com/icon-180x180.png?v=1584769763641",
+      "type": "image/png",
+      "sizes": "180x180"
+    },
+    {
+      "src": "https://cdn.superchargify.com/bird-and-earth.myshopify.com/icon-192x192.png?v=1584769763641",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "https://cdn.superchargify.com/bird-and-earth.myshopify.com/icon-512x512.png?v=1584769763641",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "background_color": "#fff",
+  "theme_color": "#000",
+  "orientation": "portrait",
+  "display": "standalone","scope": "/",
+  "start_url": "/?utm_source=superchargify&utm_medium=pwa&utm_campaign=superchargify&utm_content=start-url"
+}

@@ -1,0 +1,43 @@
+{
+  "name": "Wavepad",
+  "version": "1.5.0",
+  "description": "An experimental synthesizer built using the Web Audio API.",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "gulp browser-sync"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "babel-preset-es2015": "^6.3.13",
+    "babelify": "^7.2.0",
+    "browser-sync": "^2.11.1",
+    "browserify": "^13.0.0",
+    "del": "^2.0.2",
+    "gulp": "^3.8.10",
+    "gulp-gh-pages": "^0.5.3",
+    "gulp-if": "^2.0.0",
+    "gulp-jshint": "^2.0.0",
+    "gulp-uglify": "^1.1.0",
+    "gulp-watch": "^4.1.0",
+    "minimist": "^1.1.1",
+    "run-sequence": "^1.1.5",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "homepage": "https://alexgibson.github.io/wavepad/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alexgibson/wavepad.git"
+  },
+  "author": "Alex Gibson <alxgbsn@gmail.com> (http://alxgbsn.co.uk/)",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://raw.githubusercontent.com/alexgibson/wavepad/master/LICENSE.md"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/alexgibson/wavepad/issues"
+  }
+}
