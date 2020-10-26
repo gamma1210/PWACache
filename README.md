@@ -2,7 +2,20 @@
 
 This repository contains the replication package and dataset for the PWACache project of the Green Lab course in VU Amsterdam.
 
-The full dataset including the source of the PWAs, android runner automation files, and the R scripts used for the data analysis.
+The project was conducted by:
+
+- Abhirup Mukherjee (2667243)
+a.mukherjee@student.vu.nl
+- Gamma Andhika O. (2669061) 
+g.a.o.octafarras@student.vu.nl
+- Neeraj Sathyan (2660192) 
+n.sathyan@student.vu.nl
+- Prashanth Dommaraju (2688076) 
+p.v.dommaraju@student.vu.nl
+- Tavneet Singh (2668222) 
+t.s.tavneet@student.vu.nl
+
+The results of the experiment(Experiment Output) with the addition of the source of the PWAs, android runner automation files and the R scripts (Data Analysis + visualization) used for the data analysis are included in this repository.
 
 The PWAS used in this experiment are hosted on Github Pages, and can be accessed through:
 
