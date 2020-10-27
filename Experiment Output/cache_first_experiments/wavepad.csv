@@ -1,0 +1,11 @@
+Strategy,App,Iteration,Energy,Mem,CPU
+Stale While Revalidate,WavePad,1,88.80767999999998,1087809.91,24.89
+Stale While Revalidate,WavePad,2,99.29088,1087809.91,24.89
+Stale While Revalidate,WavePad,3,94.94784,1087809.91,24.89
+Stale While Revalidate,WavePad,4,90.75456,1087809.91,24.89
+Stale While Revalidate,WavePad,5,93.45024,1087809.91,24.89
+Stale While Revalidate,WavePad,6,91.50336,1087809.91,24.89
+Stale While Revalidate,WavePad,7,91.80288,1087809.91,24.89
+Stale While Revalidate,WavePad,8,90.00576,1087809.91,24.89
+Stale While Revalidate,WavePad,9,87.01056,1087809.91,24.89
+Stale While Revalidate,WavePad,10,86.11200000000001,1087809.91,24.89

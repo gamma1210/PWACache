@@ -3,17 +3,34 @@
   "devices": {
     "nexus6p": {}
   },
-  "repetitions": 1,
+  "repetitions": 10,
+  "duration": 20000,
   "browsers": [
     "chrome"
   ],
+  "monkeyrunner_path": "/home/neeraj/Android/Sdk/tools/bin/monkeyrunner",
+  "systrace_path": "/home/neeraj/Android/Sdk/platform-tools/systrace/systrace.py",
+  "powerprofile_path": "android-runner/examples/batterystats/Scripts/power_profile.xml",
   "paths": [
-    "https://www.google.com"
+    "https://neerajsathyan.github.io/footballpeek/",
+    "https://neerajsathyan.github.io/pwa-with-vanilla-js/",
+    "https://neerajsathyan.github.io/wavepad/",
+    "https://neerajsathyan.github.io/resilientwebdesign/",
+    "https://gamma1210.github.io/beer/",
+    "https://gamma1210.github.io/currency-calc/",
+    "https://gamma1210.github.io/jetzt/www.jetzt.de/",
+    "https://gamma1210.github.io/birdandearth/www.birdandearth.com.au/",
+    "https://neerajsathyan.github.io/la-cuenta/"
   ],
   "profilers": {
+    "batterystats": {
+      "cleanup": true,
+      "subject_aggregation": "default",
+      "experiment_aggregation" : "default"
+    },
     "android": {
       "subject_aggregation": "default",
-      "experiment_aggregation": "Scripts/aggregate_android.py",
+      "experiment_aggregation": "default",
       "sample_interval": 100,
       "data_points": [
         "cpu",
@@ -29,15 +46,11 @@
       {
         "type": "python3",
         "path": "Scripts/interaction.py"
-      },
-      {
-        "type": "monkeyreplay",
-        "path": "Scripts/monkey.txt"
       }
     ],
     "before_close": "Scripts/before_close.py",
     "after_run": "Scripts/after_run.py",
     "after_experiment": "Scripts/after_experiment.py"
   },
-  "time_between_run": 500
+  "time_between_run": 120000
 }
