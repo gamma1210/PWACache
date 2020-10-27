@@ -55,3 +55,4 @@ PWACACHE
 
 ## Running the experiment
 Follow the instructions in android-runner folder and make the necessary configuration changes based on mobile and experimental setup. The experimental configuration can be taken from the output folder of `batterystats`(only runs battery stats plugin) or from the folder `android` in the example folders of the plugin.
+Refer https://github.com/S2-group/android-runner
